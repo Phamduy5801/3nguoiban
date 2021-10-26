@@ -6,7 +6,7 @@
         <h1 style="color:#a83232">Quản lý người sử dụng</h1>
         <br><br>
         <div class="container">
-            <a class="btn btn-primary bt-add" href="add-user.php" value="">Add new user</a>
+            <a class="btn btn-primary bt-add" href="add-user.php" value="">Thêm mới người dùng</a>
             <br><br>
             <table class="table">
                 <tr>
@@ -18,12 +18,9 @@
                 </tr>
                 <?php
                 include "../config/config.php";
-                $conn = new mysqli($hn, $username, $password, $db);
-                if ($conn->connect_error) {
-                    die($conn->connect_error);
-                }
+               
                 $query = "Select u.user_id, u.username, u.email, r.role_name  from db_user u, role r where r.role_id = u.role_id";
-                $result = $conn->query("$query");
+                $result = $conn->query($query);
                 if (!$result) {
                     die($conn->error);
                 }
@@ -40,9 +37,8 @@
                         <td><?php echo $use['email'] ?></td>
                         <td><?php echo $use['role_name'] ?></td>
                         <td>
-                           
-                            <a class="btn btn-success bt-add" href="update-user.php?user_id=<?php echo $use['user_id'] ?>" value="">Update user</a>
-                            <a onclick="return confirm('Sure ?')" class="btn btn-danger" href="delete-user.php?user_id=<?php echo $use['user_id'] ?>">Delete</a>
+                            <a class="btn btn-success bt-add" href="update-user.php?user_id=<?php echo $use['user_id'] ?>" value="">Cập nhật người dùng</a>
+                            <a onclick="return confirm('Bạn có chắc xoá người dùng <?php echo $use['username'] ?> ?')" class="btn btn-danger" href="delete-user.php?user_id=<?php echo $use['user_id'] ?>">Xoá</a>
                         </td>
                     </tr>
                 <?php

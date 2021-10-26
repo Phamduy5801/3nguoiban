@@ -3,10 +3,10 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Quản lý chức năng</h1>
+        <h1 style="color:#a83232">Quản lý khoa</h1>
         <br>
         <div class="container">
-            <a class="btn btn-primary bt-add" href="add-role.php">Thêm mới chức năng</a>
+            <a class="btn btn-primary bt-add" href="add-khoa.php">Thêm mới khoa</a>
             <br><br>
             <table class="table">
                 <tr>
@@ -18,28 +18,29 @@
                 //gọi file config để kết nô
                 include "../config/config.php";
                 //câu lệNh sql
-                $query = "Select  role_id, role_name  from  role ";
-                
+                $query = "Select  ma_khoa, ten_khoa  from  db_khoa ";
+
                 $result = $conn->query($query);
                 if (!$result) {
                     die($conn->error);
                 }
-                //khởi tạo $role = 1 mảng
-                $role = array();
+                //khởi tạo $khoa = 1 mảng
+                $khoa = array();
                 //chạy vòng lặP while và 
                 while ($r = $result->fetch_array(MYSQLI_BOTH)) {
-                    $role[] = $r;
+                    $khoa[] = $r;
                 }
-                //duyệt dữ liệu từ mảng gán vào biến $ro
-                for ($i = 0; $i < count($role); $i++) {
-                    $ro = $role[$i];
+                //duyệt dữ liệu từ mảng gán vào biến $k
+                for ($i = 0; $i < count($khoa); $i++) {
+                    $k = $khoa[$i];
                 ?>
                     <tr>
                         <!-- lấy dữ liệu từ mảng hiển thị lên bảng -->
-                        <td><?php echo $ro['role_id'] ?></td>
-                        <td><?php echo $ro['role_name'] ?></td>
+                        <td><?php echo $k['ma_khoa'] ?></td>
+                        <td><?php echo $k['ten_khoa'] ?></td>
                         <td>
-                            <a onclick="return confirm('Bạn có chắc xoá chức năng <?php echo $ro['role_name'] ?>  ?')" class="btn btn-danger" href="delete-role.php?role_id=<?php echo $ro['role_id'] ?>">Xoá</a>
+                            <a class="btn btn-success bt-add" href="update-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>" value="">Cập nhật khoa</a>
+                            <a onclick="return confirm('Bạn có chắc xoá khoa <?php echo $k['ten_khoa'] ?> ?')" class="btn btn-danger" href="delete-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>">Xoá</a>
                         </td>
                     </tr>
                 <?php
@@ -54,4 +55,4 @@
 </div>
 <!-- End main -->
 
-<?php include('partials/footer.php');?>
+<?php include('partials/footer.php'); ?>
