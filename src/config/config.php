@@ -1,7 +1,7 @@
 <?php 
-	const Host = 'localhost:3306';
+	const Host = 'localhost';
     const User = 'root';
-    const Pass = '12345678';
+    const Pass = '';
     const DB = 'projectcuoiki';
 	$conn = mysqli_connect(Host, User, Pass, DB);
     if (!$conn) {
