@@ -7,6 +7,6 @@
     if (!$conn) {
         die('Không thể kết nối');
     } else {
-		echo "Kết nối thành công";
+		// echo "Kết nối thành công";
     }
 ?>

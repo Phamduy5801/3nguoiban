@@ -11,9 +11,12 @@
 
     <title>Hello, world!</title>
 </head>
+<?php
+include("../3nguoiban/src/config/config.php");
+?>
 
 <body>
-    <section class="vh-100" >
+    <section class="vh-100">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-lg-12 col-xl-11">
@@ -43,7 +46,7 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <a type="submit" class="btn btn-primary btn-lg" style="color:white" name = "signin">Sign in</a>
+                                            <a type="submit" class="btn btn-primary btn-lg" style="color:white" name="signin">Sign in</a>
                                             <a type="submit" class="btn btn-primary btn-lg" style="margin-left:15px" href="register.php">Register</a>
                                         </div>
 
