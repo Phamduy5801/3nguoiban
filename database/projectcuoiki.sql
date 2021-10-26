@@ -35,7 +35,7 @@ CREATE TABLE `db_dkihoc` (
   `ngay_dki` date NOT NULL,
   `ten_monhoc` varchar(255) NOT NULL,
   `lop_hoc` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,8 @@ CREATE TABLE `db_dkihoc` (
 CREATE TABLE `db_khoa` (
   `ma_khoa` char(15) NOT NULL,
   `ten_khoa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,8 @@ CREATE TABLE `db_student` (
   `st_email` char(50) NOT NULL,
   `st_diachi` varchar(255) NOT NULL,
   `ma_khoa` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -79,7 +81,8 @@ CREATE TABLE `db_subject` (
   `thoigian_hoc` varchar(255) NOT NULL,
   `giang_vien` varchar(50) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -94,7 +97,8 @@ CREATE TABLE `db_teacher` (
   `tea_email` char(50) NOT NULL,
   `tea_diachi` varchar(255) NOT NULL,
   `ma_khoa` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -109,7 +113,8 @@ CREATE TABLE `db_user` (
   `email` char(50) NOT NULL,
   `role_id` int(11) NOT NULL,
   `created_time` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 -- --------------------------------------------------------
 
@@ -120,7 +125,8 @@ CREATE TABLE `db_user` (
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
 
 --
 -- Chỉ mục cho các bảng đã đổ
