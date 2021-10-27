@@ -8,10 +8,10 @@
         header("Location: khoa.php");
     }
     //gọi file kết nối cơ sở dữ liệu
-    include "../config/config.php";
+    include_once ("../../config/config.php");
    //câu lệnh sql
     $query = "delete from db_khoa where ma_khoa = ?";
-    //Tạo đối tượng repared
+    //Tạo đối tượng repare
     $stmt = $conn->prepare($query);  
     //kiểm tra kết nối   
     if(!$conn->error) {
@@ -23,6 +23,7 @@
         $stmt->close();
         //đóng kết nối
         $conn->close();
+        //chuyểN về trang khoa
         header("Location: khoa.php");
     } else {
         //nếu lõi hiển thị lỗi và đóng kết nối

@@ -4,14 +4,14 @@
         //lấy id của người dùng
         $id = $_GET['role_id'];
     } else {
-        //nếu không lấy được quay lại trang user.php
+        //nếu không lấy được quay lại trang role.php
         header("Location: role.php");
     }
     //gọi file kết nối cơ sở dữ liệu
-    include "../config/config.php";
+    include_once ("../../config/config.php");
    //câu lệnh sql
     $query = "delete from role where role_id = ?";
-    //Tạo đối tượng repared
+    //Tạo đối tượng repare
     $stmt = $conn->prepare($query);  
     //kiểm tra kết nối   
     if(!$conn->error) {
@@ -23,6 +23,7 @@
         $stmt->close();
         //đóng kết nối
         $conn->close();
+        //chuyềN về trang role 
         header("Location: role.php");
     } else {
         //nếu lõi hiển thị lỗi và đóng kết nối

@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['done'])){
+        header("Location: ../../../login.php");
+    }
+?>
 <?php include('partials/header.php'); ?>
 
 <!-- Start main -->
@@ -11,12 +17,12 @@
             <table class="table">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Action</th>
+                    <th>Tên</th>
+                    <th>Chức năng</th>
                 </tr>
                 <?php
                 //gọi file config để kết nô
-                include "../config/config.php";
+                include_once ("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select  role_id, role_name  from  role ";
                 
@@ -26,8 +32,9 @@
                 }
                 //khởi tạo $role = 1 mảng
                 $role = array();
-                //chạy vòng lặP while và 
+                //chạy vòng lặp để lấy dữ liệu theo từng hàng 
                 while ($r = $result->fetch_array(MYSQLI_BOTH)) {
+                    //gán mảng role = dữ liệu theo từng hàng trong cơ sở dữ liệu
                     $role[] = $r;
                 }
                 //duyệt dữ liệu từ mảng gán vào biến $ro

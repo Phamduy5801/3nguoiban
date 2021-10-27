@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['done'])){
+        header("Location: ../../../login.php");
+    }
+?>
 <?php include('partials/header.php'); ?>
 
 <!-- Start main -->
@@ -11,22 +17,23 @@
             <table class="table">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Action</th>
+                    <th>Tên</th>
+                    <th>Chức năng</th>
                 </tr>
                 <?php
                 //gọi file config để kết nô
-                include "../config/config.php";
+                include_once ("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select  ma_khoa, ten_khoa  from  db_khoa ";
-
+                // thực thi câu lệnh sql 
                 $result = $conn->query($query);
+                //kiểm tra sự tồn tại của $result
                 if (!$result) {
                     die($conn->error);
                 }
                 //khởi tạo $khoa = 1 mảng
                 $khoa = array();
-                //chạy vòng lặP while và 
+                //chạy vòng lặP while và lấy dữ liệu theo từng hàng
                 while ($r = $result->fetch_array(MYSQLI_BOTH)) {
                     $khoa[] = $r;
                 }
@@ -55,4 +62,4 @@
 </div>
 <!-- End main -->
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials/footer.php'); ?> 

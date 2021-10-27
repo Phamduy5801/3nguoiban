@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['done'])){
+        header("Location: ../../../login.php");
+    }
+?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
 <div class="main-content">
@@ -5,7 +11,7 @@
         <h1 style="color:#a83232">Thêm mới khoa</h1>
         <br><br>
         <div class="container">
-            <form method="POST" action="add-khoa.php" enctype="multipart/form-data">
+            <form method="POST" action="add-khoa.php">
                 Mã khoa: <input class="form-control" type="text" name="ma_khoa"/><br>
                 Tên khoa: <input class="form-control" type="text" name="ten_khoa"/><br>
                 <br>
@@ -21,12 +27,12 @@
 <?php
 //kiểm tra dữ liệu người dùng nhậP
 if (isset($_REQUEST['ma_khoa']) && isset($_REQUEST['ten_khoa'])) {
-    
+
     //kết nối sql
-    include "../config/config.php";
+    include_once ("../../config/config.php");
     //câu lệnh sql
     $query = "INSERT INTO `db_khoa` (`ma_khoa`,`ten_khoa`) VALUES (?,?);";
-    // Tạo đối tượng repared
+    // Tạo đối tượng repare
     $stmt = $conn->prepare($query);
     //gán dữ liệu vào biến và lấy dữ liệu từ form
     $ma_khoa = $_POST['ma_khoa'];
@@ -37,7 +43,7 @@ if (isset($_REQUEST['ma_khoa']) && isset($_REQUEST['ten_khoa'])) {
     $stmt->execute();
     //đóng kết nối cơ sở dữ liệu
     $conn->close();
-    //chuyển về trang user
+    //chuyển về trang khoa
     header("Location: khoa.php");
 }
-?>
+?> 

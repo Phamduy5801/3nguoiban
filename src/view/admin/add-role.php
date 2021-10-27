@@ -1,3 +1,9 @@
+<?php 
+    session_start();
+    if(!isset($_SESSION['done'])){
+        header("Location: ../../../login.php");
+    }
+?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
 <div class="main-content">
@@ -6,7 +12,7 @@
         <br><br>
         <div class="container">
 
-            <form method="POST" action="add-role.php" enctype="multipart/form-data">
+            <form method="POST" action="add-role.php">
 
                 Name: <input class="form-control" type="text" name="role"/><br>
                 <br>
@@ -23,15 +29,15 @@
 <?php
 //kiểm tra dữ liệu người dùng nhậP
 if (isset($_REQUEST['role'])) {
-    
+
     //kết nối sql
-    include "../config/config.php";
-    
+    include_once ("../../config/config.php");
+
     //câu lệnh sql
     $query = "INSERT INTO `role` (`role_name`) VALUES (?);";
-    // Tạo đối tượng repared
+    // Tạo đối tượng repare
     $stmt = $conn->prepare($query);
-    //gán dữ liệu vào biến và lấy dữ liệu từ form
+    //gán dữ liệu vào biến và lấy dữ liệu từ form với name tương ứng
     $id = $_GET['role_id'];
     $role = $_POST['role'];
     // Gán giá trị vào các tham số ẩn ('?')
@@ -40,7 +46,7 @@ if (isset($_REQUEST['role'])) {
     $stmt->execute();
     //đóng kết nối cơ sở dữ liệu
     $conn->close();
-    //chuyển về trang user
+    //chuyển về trang role
     header("Location: role.php");
 }
-?>
+?> 
