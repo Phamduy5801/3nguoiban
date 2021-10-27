@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2021 at 06:25 AM
+-- Generation Time: Oct 27, 2021 at 01:18 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `db_dkihoc` (
+  `id` int(12) NOT NULL,
   `sb_id` char(50) NOT NULL,
   `st_id` char(15) NOT NULL,
   `tea_id` int(11) NOT NULL,
@@ -47,6 +48,13 @@ CREATE TABLE `db_khoa` (
   `ten_khoa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `db_khoa`
+--
+
+INSERT INTO `db_khoa` (`ma_khoa`, `ten_khoa`) VALUES
+('1', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -62,6 +70,13 @@ CREATE TABLE `db_student` (
   `st_diachi` varchar(255) NOT NULL,
   `ma_khoa` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `db_student`
+--
+
+INSERT INTO `db_student` (`st_id`, `st_ten`, `st_lop`, `st_sdt`, `st_email`, `st_diachi`, `ma_khoa`) VALUES
+('1', 'admin', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '1');
 
 -- --------------------------------------------------------
 
@@ -112,6 +127,13 @@ CREATE TABLE `db_user` (
   `st_id` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `db_user`
+--
+
+INSERT INTO `db_user` (`id`, `username`, `password`, `email`, `role_id`, `created_date`, `expiry_date`, `st_id`) VALUES
+(1, 'admin', '12345', '[value-4]', 1, '0000-00-00 00:00:00', '0000-00-00', '1');
+
 -- --------------------------------------------------------
 
 --
@@ -124,6 +146,13 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`role_id`, `role_name`) VALUES
+(1, 'admin');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -131,6 +160,7 @@ CREATE TABLE `role` (
 -- Indexes for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
+  ADD PRIMARY KEY (`id`),
   ADD KEY `sb_id` (`sb_id`),
   ADD KEY `st_id` (`st_id`),
   ADD KEY `tea_id` (`tea_id`);
