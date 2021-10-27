@@ -68,14 +68,14 @@
         $username1 = $_POST['username'];
         $passw = $_POST['pass'];
 
-        include "config/config.php";
+        include "src/config/config.php";
 
         $query = "select * from db_user where username='$username1' and password='$passw'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
             $_SESSION['done'] = $username1;
-            header("Location: admin/index-admin.php");
+            header("Location: src/view/admin/index-admin.php");
         } else {
             header("Location: login.php");
         }

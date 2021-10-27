@@ -20,11 +20,11 @@
                 <li><a href="index-admin.php">Trang chủ</a></li>
                 <li><a href="user.php">Người dùng</a></li>
                 <li><a href="role.php">Chức năng</a></li>
-                <li><a href="#">Sinh viên</a></li>
+                <li><a href="student.php">Sinh viên</a></li>
                 <li><a href="khoa.php">Khoa</a></li>
-                <li><a href="#">Môn học</a></li>
-                <li><a href="#">Giảng viên</a></li>
-                <li><a href="#">Đăng kí học</a></li>
+                <li><a href="subject.php">Môn học</a></li>
+                <li><a href="teacher.php">Giảng viên</a></li>
+                <li><a href="dkihoc.php">Đăng kí học</a></li>
                 <li><a href="#">Đăng xuất</a></li>
             </ul>
         </div>
