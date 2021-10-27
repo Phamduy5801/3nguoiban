@@ -10,33 +10,51 @@
                     <th scope="col">Mã lớp</th>
                     <th scope="col">Mã môn</th>
                     <th scope="col">Tên Môn</th>
-                    <th scope="col">Loại lớp</th>
                     <th scope="col">Trạng thái</th>
-                    <th scope="col">Số học sinh</th>
                     <th scope="col">Đã đăng ký</th>
                     <th scope="col">Khoa</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row" style="width: 200px;">
+                    <td scope="row" style="width: 200px;">
                         <div class="input-group input-group-sm mb-3" style="width: 100%;">
                             <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-                    </th>
-                    <th scope="row" style="width: 200px;">
+                    </td>
+                    <td scope="row" style="width: 200px;">
                         <div class="input-group input-group-sm mb-3" style="width: 100%;">
                             <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-                    </th>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
+                    </td>
+                    <td scope="row" style="width: 200px;">
+                        <div class="input-group input-group-sm mb-3" style="width: 100%;">
+                            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </td>
+                    <td scope="row" style="width: 200px;">
+                        <select class="form-select" aria-label="Default select example" >
+                            <option selected></option>
+                            <option value="1">Có thể đăng ký</option>
+                            <option value="2">Đã đầy</option>
+                        </select>
+                    </td>
+                    <td scope="row" style="width: 200px;">
+                        <div class="input-group input-group-sm mb-3" style="width: 100%;">
+                            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </td>
+                    </td>
+                    <td scope="row" style="width: 200px;">
+                        <div class="input-group input-group-sm mb-3" style="width: 100%;">
+                            <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </td>
 
                 </tr>
             </tbody>
