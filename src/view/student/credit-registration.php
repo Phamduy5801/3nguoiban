@@ -1,4 +1,4 @@
-<?php include('../admin/partials/header.php'); ?>
+<?php include('../student/partials/header.php'); ?>
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
@@ -46,4 +46,4 @@
     </div>
 </div>
 <!-- End main -->
-<?php include('../admin/partials/footer.php'); ?>
+<?php include('../student/partials/footer.php'); ?>
