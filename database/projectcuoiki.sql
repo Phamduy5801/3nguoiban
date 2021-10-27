@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th10 25, 2021 lúc 03:29 PM
--- Phiên bản máy phục vụ: 8.0.17
--- Phiên bản PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Oct 27, 2021 at 06:25 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `projectcuoiki`
+-- Database: `projectcuoiki`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_dkihoc`
+-- Table structure for table `db_dkihoc`
 --
 
 CREATE TABLE `db_dkihoc` (
@@ -35,24 +34,23 @@ CREATE TABLE `db_dkihoc` (
   `ngay_dki` date NOT NULL,
   `ten_monhoc` varchar(255) NOT NULL,
   `lop_hoc` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_khoa`
+-- Table structure for table `db_khoa`
 --
 
 CREATE TABLE `db_khoa` (
   `ma_khoa` char(15) NOT NULL,
   `ten_khoa` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_student`
+-- Table structure for table `db_student`
 --
 
 CREATE TABLE `db_student` (
@@ -63,13 +61,12 @@ CREATE TABLE `db_student` (
   `st_email` char(50) NOT NULL,
   `st_diachi` varchar(255) NOT NULL,
   `ma_khoa` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_subject`
+-- Table structure for table `db_subject`
 --
 
 CREATE TABLE `db_subject` (
@@ -81,13 +78,12 @@ CREATE TABLE `db_subject` (
   `thoigian_hoc` varchar(255) NOT NULL,
   `giang_vien` varchar(50) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_teacher`
+-- Table structure for table `db_teacher`
 --
 
 CREATE TABLE `db_teacher` (
@@ -97,13 +93,12 @@ CREATE TABLE `db_teacher` (
   `tea_email` char(50) NOT NULL,
   `tea_diachi` varchar(255) NOT NULL,
   `ma_khoa` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_user`
+-- Table structure for table `db_user`
 --
 
 CREATE TABLE `db_user` (
@@ -112,28 +107,28 @@ CREATE TABLE `db_user` (
   `password` char(50) NOT NULL,
   `email` char(50) NOT NULL,
   `role_id` int(11) NOT NULL,
-  `created_time` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
+  `created_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `expiry_date` date NOT NULL,
+  `st_id` char(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
-
---
--- Chỉ mục cho các bảng đã đổ
---
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Chỉ mục cho bảng `db_dkihoc`
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
   ADD KEY `sb_id` (`sb_id`),
@@ -141,51 +136,52 @@ ALTER TABLE `db_dkihoc`
   ADD KEY `tea_id` (`tea_id`);
 
 --
--- Chỉ mục cho bảng `db_khoa`
+-- Indexes for table `db_khoa`
 --
 ALTER TABLE `db_khoa`
   ADD PRIMARY KEY (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_student`
+-- Indexes for table `db_student`
 --
 ALTER TABLE `db_student`
   ADD PRIMARY KEY (`st_id`),
   ADD KEY `ma_khoa` (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_subject`
+-- Indexes for table `db_subject`
 --
 ALTER TABLE `db_subject`
   ADD PRIMARY KEY (`sb_id`),
   ADD KEY `ma_khoa` (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_teacher`
+-- Indexes for table `db_teacher`
 --
 ALTER TABLE `db_teacher`
   ADD PRIMARY KEY (`tea_id`),
   ADD KEY `ma_khoa` (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_user`
+-- Indexes for table `db_user`
 --
 ALTER TABLE `db_user`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `st_id` (`st_id`);
 
 --
--- Chỉ mục cho bảng `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `db_dkihoc`
+-- Constraints for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
   ADD CONSTRAINT `db_dkihoc_ibfk_1` FOREIGN KEY (`sb_id`) REFERENCES `db_subject` (`sb_id`),
@@ -193,28 +189,29 @@ ALTER TABLE `db_dkihoc`
   ADD CONSTRAINT `db_dkihoc_ibfk_3` FOREIGN KEY (`tea_id`) REFERENCES `db_teacher` (`tea_id`);
 
 --
--- Các ràng buộc cho bảng `db_student`
+-- Constraints for table `db_student`
 --
 ALTER TABLE `db_student`
   ADD CONSTRAINT `db_student_ibfk_1` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`);
 
 --
--- Các ràng buộc cho bảng `db_subject`
+-- Constraints for table `db_subject`
 --
 ALTER TABLE `db_subject`
   ADD CONSTRAINT `db_subject_ibfk_1` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`);
 
 --
--- Các ràng buộc cho bảng `db_teacher`
+-- Constraints for table `db_teacher`
 --
 ALTER TABLE `db_teacher`
   ADD CONSTRAINT `db_teacher_ibfk_1` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`);
 
 --
--- Các ràng buộc cho bảng `db_user`
+-- Constraints for table `db_user`
 --
 ALTER TABLE `db_user`
-  ADD CONSTRAINT `db_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+  ADD CONSTRAINT `db_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`),
+  ADD CONSTRAINT `db_user_ibfk_2` FOREIGN KEY (`st_id`) REFERENCES `db_student` (`st_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
