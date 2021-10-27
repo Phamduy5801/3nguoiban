@@ -1,8 +1,8 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['done'])){
-        header("Location: ../../../login.php");
-    }
+<?php
+session_start();
+if (!isset($_SESSION['done'])) {
+    header("Location: ../../../login.php");
+}
 ?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
@@ -11,21 +11,24 @@
         <h1 style="color:#a83232">Quản lý giảng viên</h1>
         <br>
         <div class="container">
-        <a class="btn btn-primary bt-add" href="add-teacher.php" value="">Thêm mới giảng viên</a>
-        <br><br>
-        <table class="table">
-                <tr>
-                    <th>ID</th>
-                    <th>Tên</th>
-                    <th>Số điện thoại</th>
-                    <th>Email</th>
-                    <th>Địa chỉ</th>
-                    <th>Khoa</th>
-                    <th>Chức năng</th>
-                </tr>
+            <a class="btn btn-primary bt-add" href="add-teacher.php" value="">Thêm mới giảng viên</a>
+            <br><br>
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Số điện thoại</th>
+                        <th>Email</th>
+                        <th>Địa chỉ</th>
+                        <th>Khoa</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
                 <?php
                 //gọi file config để kết nô
-                include_once ("../../config/config.php");
+                include_once("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select tea_id, tea_ten, tea_sdt, tea_email, tea_diachi, ten_khoa  from db_teacher , db_khoa 
                 where db_khoa.ma_khoa = db_teacher.ma_khoa  ";
@@ -55,8 +58,10 @@
                         <td><?php echo $tea['tea_diachi'] ?></td>
                         <td><?php echo $tea['ten_khoa'] ?></td>
                         <td>
-                            <a class="btn btn-success bt-add" href="update-teacher.php?tea_id=<?php  echo $tea['tea_id'] ?>">Cập nhật giảng viên</a>
-                            <a onclick="return confirm('Bạn có chắc xoá giảng viên <?php echo $tea['tea_ten']?> ?')" class="btn btn-danger" href="delete-teacher.php?tea_id=<?php echo $tea['tea_id']  ?>">Xoá</a>
+                            <a class="btn btn-success bt-add" href="update-teacher.php?tea_id=<?php echo $tea['tea_id'] ?>"><i class="fa-solid fa-wrench"></i></a>
+                        </td>
+                        <td>
+                            <a onclick="return confirm('Bạn có chắc xoá giảng viên <?php echo $tea['tea_ten'] ?> ?')" class="btn btn-danger" href="delete-teacher.php?tea_id=<?php echo $tea['tea_id']  ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php

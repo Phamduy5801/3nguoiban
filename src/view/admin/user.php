@@ -14,7 +14,8 @@ if (!isset($_SESSION['done'])) {
 
             <a class="btn btn-primary bt-add" href="add-user.php" value="">Thêm mới người dùng</a>
             <br><br>
-            <table class="table">
+            <table class="table table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Tên đăng nhập</th>
@@ -23,11 +24,12 @@ if (!isset($_SESSION['done'])) {
                     <th>Sửa</th>
                     <th>Xóa</th>
                 </tr>
+                </thead>
                 <?php
                 //kết nối csdl
                 include_once("../../config/config.php");
                 //câu lệnh sql
-                $query = "Select u.id, u.username, u.email, r.role_name  from db_user u, role r where r.role_id = u.role_id";
+                $query = "Select u.user_id, u.username, u.email, r.role_name  from db_user u, role r where r.role_id = u.role_id";
                 //khởi tạo đối tượng prepare
                 $result = $conn->query($query);
                 //kiếm tra $result
@@ -47,15 +49,15 @@ if (!isset($_SESSION['done'])) {
                     $use = $user[$i];
                 ?>
                     <tr>
-                        <td><?php echo $use['id'] ?></td>
+                        <td><?php echo $use['user_id'] ?></td>
                         <td><?php echo $use['username'] ?></td>
                         <td><?php echo $use['email'] ?></td>
                         <td><?php echo $use['role_name'] ?></td>
-                        <td>
-                            <a class="btn btn-success bt-add" href="update-user.php?user_id=<?php echo $use['id'] ?>"><i class="fa-solid fa-wrench"></i></a>
+                        <td colspan="1">
+                            <a class="btn btn-success bt-add" href="update-user.php?user_id=<?php echo $use['user_id'] ?>"><i class="fa-solid fa-wrench"></i></a>
                         </td>
-                        <td>
-                            <a onclick="return confirm('Bạn có chắc xoá người dùng <?php echo $use['username'] ?> ?')" class="btn btn-danger" href="delete-user.php?user_id=<?php echo $use['id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
+                        <td colspan="1">
+                            <a onclick="return confirm('Bạn có chắc xoá người dùng <?php echo $use['username'] ?> ?')" class="btn btn-danger" href="delete-user.php?user_id=<?php echo $use['user_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php

@@ -11,7 +11,8 @@ if (!isset($_SESSION['done'])) {
         <h1 style="color:#a83232">Quản lý đăng kí học</h1>
         <br>
         <div class="container">
-            <table class="table">
+        <table class="table table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Mã môn học</th>
@@ -20,8 +21,9 @@ if (!isset($_SESSION['done'])) {
                     <th>Ngày đăng kí</th>
                     <th>Tên môn học</th>
                     <th>Lớp học</th>
-                    <th>Chức năng</th>
+                    <th>Sửa</th>
                 </tr>
+            </thead>
                 <?php
                 //gọi file config để kết noosi co so du lieu
                 include_once("../../config/config.php");
@@ -54,8 +56,8 @@ if (!isset($_SESSION['done'])) {
                         <td><?php echo $dki['ngay_dki'] ?></td>
                         <td><?php echo $dki['sb_ten'] ?></td>
                         <td><?php echo $dki['lop_hoc'] ?></td>
-                        <td>
-                            <a class="btn btn-success bt-add" href="update-dkihoc.php?id=<?php echo $dki['id'] ?>">Cập nhật lịch học</a>
+                        <td colspan="1">
+                            <a class="btn btn-success bt-add" href="update-dkihoc.php?id=<?php echo $dki['id'] ?>"><i class="fa-solid fa-wrench"></i></a>
                         </td>
                     </tr>
                 <?php

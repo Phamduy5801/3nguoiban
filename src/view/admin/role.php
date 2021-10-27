@@ -14,12 +14,14 @@
         <div class="container">
             <a class="btn btn-primary bt-add" href="add-role.php">Thêm mới chức năng</a>
             <br><br>
-            <table class="table">
+            <table class="table table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Tên</th>
-                    <th>Chức năng</th>
+                    <th>Sửa</th>
                 </tr>
+            </thead>
                 <?php
                 //gọi file config để kết nô
                 include_once ("../../config/config.php");
@@ -46,7 +48,7 @@
                         <td><?php echo $ro['role_id'] ?></td>
                         <td><?php echo $ro['role_name'] ?></td>
                         <td>
-                            <a onclick="return confirm('Bạn có chắc xoá chức năng <?php echo $ro['role_name'] ?>  ?')" class="btn btn-danger" href="delete-role.php?role_id=<?php echo $ro['role_id'] ?>">Xoá</a>
+                            <a onclick="return confirm('Bạn có chắc xoá chức năng <?php echo $ro['role_name'] ?>  ?')" class="btn btn-danger" href="delete-role.php?role_id=<?php echo $ro['role_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php

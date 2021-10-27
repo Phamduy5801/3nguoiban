@@ -1,8 +1,8 @@
-<?php
-session_start();
-if (!isset($_SESSION['done'])) {
-    header("Location: ../../../login.php");
-}
+<?php 
+    session_start();
+    if(!isset($_SESSION['done'])){
+        header("Location: ../../../login.php");
+    }
 ?>
 <?php include('partials/header.php'); ?>
 
@@ -15,17 +15,17 @@ if (!isset($_SESSION['done'])) {
             <a class="btn btn-primary bt-add" href="add-khoa.php">Thêm mới khoa</a>
             <br><br>
             <table class="table table-striped">
-                <thead class="table-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Tên</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
-                    </tr>
-                </thead>
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
+                </tr>
+            </thead>
                 <?php
                 //gọi file config để kết nô
-                include_once("../../config/config.php");
+                include_once ("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select  ma_khoa, ten_khoa  from  db_khoa ";
                 // thực thi câu lệnh sql 
@@ -44,19 +44,17 @@ if (!isset($_SESSION['done'])) {
                 for ($i = 0; $i < count($khoa); $i++) {
                     $k = $khoa[$i];
                 ?>
-                    <tbody>
-                        <tr>
-                            <!-- lấy dữ liệu từ mảng hiển thị lên bảng -->
-                            <td colspan="1"><?php echo $k['ma_khoa'] ?></td>
-                            <td colspan="1"><?php echo $k['ten_khoa'] ?></td>
-                            <td colspan="1">
-                                <a class="btn btn-success bt-add" href="update-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>" value=""><i class="fa-solid fa-wrench"></i></a>
-                            </td>
-                            <td colspan="1">
-                                <a onclick="return confirm('Bạn có chắc xoá khoa <?php echo $k['ten_khoa'] ?> ?')" class="btn btn-danger" href="delete-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>"><i class="fa-solid fa-user-slash"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tr>
+                        <!-- lấy dữ liệu từ mảng hiển thị lên bảng -->
+                        <td><?php echo $k['ma_khoa'] ?></td>
+                        <td><?php echo $k['ten_khoa'] ?></td>
+                        <td>
+                            <a class="btn btn-success bt-add" href="update-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>" value=""><i class="fa-solid fa-wrench"></i></a>
+                        </td>
+                        <td>
+                        <a onclick="return confirm('Bạn có chắc xoá khoa <?php echo $k['ten_khoa'] ?> ?')" class="btn btn-danger" href="delete-khoa.php?ma_khoa=<?php echo $k['ma_khoa'] ?>"><i class="fa-solid fa-user-slash"></i></a>
+                        </td>
+                    </tr>
                 <?php
                 }
                 ?>
@@ -69,4 +67,4 @@ if (!isset($_SESSION['done'])) {
 </div>
 <!-- End main -->
 
-<?php include('partials/footer.php'); ?>
+<?php include('partials/footer.php'); ?> 

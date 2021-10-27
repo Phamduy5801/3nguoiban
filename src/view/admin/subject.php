@@ -13,7 +13,8 @@
         
         <a class="btn btn-primary bt-add" href="add-subject.php" value="">Thêm mới môn học</a>
         <br><br>
-        <table class="table">
+        <table class="table table-striped">
+            <thead class="table-dark">
                 <tr>
                     <th>ID</th>
                     <th>Khoa</th>
@@ -23,8 +24,10 @@
                     <th>Thời gian học</th>
                     <th>Giảng viên</th>
                     <th>Số tín chỉ</th>
-                    <th>Chức năng</th>
+                    <th>Sửa</th>
+                    <th>Xoá</th>
                 </tr>
+            </thead>
                 <?php
                 //gọi file config để kết nô
                 include_once ("../../config/config.php");
@@ -60,8 +63,11 @@
                         <td><?php echo $sb['giang_vien'] ?></td>
                         <td><?php echo $sb['sb_tinchi'] ?></td>
                         <td>
-                            <a class="btn btn-success bt-add" href=" update-subject.php?sb_id=<?php echo $sb['sb_id']?>">Cập nhật</a>
-                            <a onclick="return confirm('Bạn có chắc xoá môn học <?php echo $sb['sb_ten']?> ?')" class="btn btn-danger" href="delete-subject.php?sb_id=<?php echo $sb['sb_id'] ?>">Xoá</a>
+                            <a class="btn btn-success bt-add" href=" update-subject.php?sb_id=<?php echo $sb['sb_id']?>"><i class="fa-solid fa-wrench"></i></a>
+                            
+                        </td>
+                        <td>
+                        <a onclick="return confirm('Bạn có chắc xoá môn học <?php echo $sb['sb_ten']?> ?')" class="btn btn-danger" href="delete-subject.php?sb_id=<?php echo $sb['sb_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php
