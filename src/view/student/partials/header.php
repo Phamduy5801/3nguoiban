@@ -15,14 +15,12 @@
     <div class="menu text-center">
         <div class="wrapper">
             <ul>
-                <li><a href="index-admin.php">Trang chủ</a></li>
-                <li><a href="user.php">Người dùng</a></li>
-                <li><a href="role.php">Chức năng</a></li>
-                <li><a href="#">Sinh viên</a></li>
-                <li><a href="khoa.php">Khoa</a></li>
+                <li><a href="index.php">Trang chủ</a></li>
+                <li><a href="#">Thông tin cá nhân</a></li>
+                <li><a href="#">Khoa</a></li>
                 <li><a href="#">Môn học</a></li>
                 <li><a href="#">Giảng viên</a></li>
-                <li><a href="#">Đăng kí học</a></li>
+                <li><a href="credit-registration.php">Đăng kí học</a></li>
                 <li><a href="#">Đăng xuất</a></li>
             </ul>
         </div>
