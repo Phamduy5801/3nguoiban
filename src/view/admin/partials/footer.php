@@ -1,7 +1,7 @@
  <!-- Start footer -->
  <div class="footer">
         <div class="wrapper">
-            <p class="text-center">2021 Bảo lưu mọi quyền. Developed By - <a href="#">Pham Duy</a></p>
+            <!-- <p class="text-center">2021 Bảo lưu mọi quyền. Developed By - <a href="#">Pham Duy</a></p> -->
         </div>
     </div>
     <!-- End footer -->
