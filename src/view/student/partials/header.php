@@ -20,6 +20,7 @@
                 <li><a href="#">Khoa</a></li>
                 <li><a href="#">Môn học</a></li>
                 <li><a href="#">Giảng viên</a></li>
+                <li><a href="list-class.php">Thông tin lớp</a></li>
                 <li><a href="credit-registration.php">Đăng kí học</a></li>
                 <li><a href="#">Đăng xuất</a></li>
             </ul>
