@@ -8,7 +8,7 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Thêm mới sinh viên</h1>
+        <h1 style="color:#a83232">Thêm mới môn học</h1>
         <br><br>
         <div class="container">
             <form method="POST" action="add-subject.php">

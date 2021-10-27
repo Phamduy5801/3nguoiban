@@ -8,7 +8,7 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Quản lý sinh viên</h1>
+        <h1 style="color:#a83232">Quản lý đăng kí học</h1>
         <br>
         <div class="container">
         <table class="table">

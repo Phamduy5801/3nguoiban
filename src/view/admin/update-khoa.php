@@ -8,7 +8,7 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Cập nhật thông tin</h1>
+        <h1 style="color:#a83232">Cập nhật khoa</h1>
         <br>
         <?php
         //kiểm tra khởi tạo của biếN ma_khoa
