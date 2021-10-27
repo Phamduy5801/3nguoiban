@@ -1,8 +1,8 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['done'])){
-        header("Location: ../../../login.php");
-    }
+<?php
+session_start();
+if (!isset($_SESSION['done'])) {
+    header("Location: ../../../login.php");
+}
 ?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
@@ -11,7 +11,7 @@
         <h1 style="color:#a83232">Quản lý đăng kí học</h1>
         <br>
         <div class="container">
-        <table class="table">
+            <table class="table">
                 <tr>
                     <th>ID</th>
                     <th>Mã môn học</th>
@@ -24,7 +24,7 @@
                 </tr>
                 <?php
                 //gọi file config để kết noosi co so du lieu
-                include_once ("../../config/config.php");
+                include_once("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select dki.id, sb.sb_id, st.st_ten, tea.tea_ten, dki.ngay_dki, sb.sb_ten, dki.lop_hoc from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
                 where st.st_id = dki.st_id and sb.sb_id = dki.sb_id and tea.tea_id = dki.tea_id ";
