@@ -25,7 +25,7 @@
                 <li><a href="subject.php">Môn học</a></li>
                 <li><a href="teacher.php">Giảng viên</a></li>
                 <li><a href="dkihoc.php">Đăng kí học</a></li>
-                <li><a href="#">Đăng xuất</a></li>
+                <li><a href="../../../logout.php">Đăng xuất</a></li>
             </ul>
         </div>
     </div>

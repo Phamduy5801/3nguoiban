@@ -74,7 +74,7 @@
                     }
                     ?>
                 </select>
-                Lớp học: <input class="form-control" type="text" name="lop_hoc" value="<?php echo $dki['lop_hoc'] ?>" /><br>
+                Lớp học: <input class="form-control" type="text" name="lop_hoc" value="<?php echo $dki['phong_hoc'] ?>" /><br>
               
                 <br>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -93,7 +93,7 @@ if (isset($_REQUEST['ten_gv']) && isset($_REQUEST['lop_hoc'])) {
     //kết nối cơ sở dữ liệu
     include_once ("../../config/config.php");
     //câu lệnH sql
-    $query = "update db_dkihoc set tea_id = ?, lop_hoc = ? where id = ?";
+    $query = "update db_dkihoc set tea_id = ?, phong_hoc = ? where id = ?";
     //khởI tạo đố itượng prepare
     $stmt = $conn->prepare($query);
     //gán biến = dữ liệu lấy từ trong form

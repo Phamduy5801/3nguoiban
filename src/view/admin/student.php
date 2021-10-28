@@ -16,13 +16,14 @@ if (!isset($_SESSION['done'])) {
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
-                        <th class="d-flex justify-content-center">ID</th>
+                        <th>ID</th>
                         <th>Tên</th>
+                        <th>Khoa</th>
+                        <th>Username</th>
                         <th>Lớp</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
                         <th>Địa chỉ</th>
-                        <th>Khoa</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                     </tr>
@@ -31,8 +32,8 @@ if (!isset($_SESSION['done'])) {
                 //gọi file config để kết nô
                 include_once("../../config/config.php");
                 //câu lệNh sql
-                $query = "Select st_id, st_ten, st_lop, st_sdt, st_email, st_diachi, ten_khoa  from db_student , db_khoa 
-                where db_khoa.ma_khoa = db_student.ma_khoa  ";
+                $query = "Select st_id, ten_khoa, db_user.username, st_ten, st_lop, st_sdt, st_email, st_diachi  from db_student , db_khoa, db_user
+                where db_khoa.ma_khoa = db_student.ma_khoa and db_student.user_id=db_user.user_id ";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của $result
@@ -54,11 +55,12 @@ if (!isset($_SESSION['done'])) {
                         <!-- lấy dữ liệu từ mảng hiển thị lên bảng -->
                         <td colspan="1"><?php echo $st['st_id'] ?></td>
                         <td colspan="1"><?php echo $st['st_ten'] ?></td>
+                        <td colspan="1"><?php echo $st['ten_khoa'] ?></td>
+                        <td colspan="1"><?php echo $st['username'] ?></td>
                         <td colspan="1"><?php echo $st['st_lop'] ?></td>
                         <td colspan="1"><?php echo $st['st_sdt'] ?></td>
                         <td colspan="1"><?php echo $st['st_email'] ?></td>
                         <td colspan="1"><?php echo $st['st_diachi'] ?></td>
-                        <td colspan="1"><?php echo $st['ten_khoa'] ?></td>
                         <td colspan="1">
                             <a class="btn btn-success bt-add" href="update-student.php?st_id=<?php echo $st['st_id']  ?>"><i class="fa-solid fa-wrench"></i></a>
                         </td>
