@@ -23,7 +23,7 @@ include("partials/header.php")
                 </a>
             </div>
             <div class="col-6 text-center box">
-                <a href="#">
+                <a href="credits-registration.php">
                 <div class="icon-group">
                     <i class="fas fa-university"></i>
                 </div>
@@ -31,7 +31,7 @@ include("partials/header.php")
                 </a>
             </div>
             <div class="col-6 text-center box">
-                <a href="#">
+                <a href="list-class.php">
                 <div class="icon-group">
                     <i class="fas fa-university"></i>
                 </div>
