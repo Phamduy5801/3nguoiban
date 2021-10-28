@@ -35,7 +35,7 @@ include("../student/partials/header.php")
                 <div class="icon-group">
                     <i class="fas fa-university"></i>
                 </div>
-                Giảng viên
+                Thông tin lớp
                 </a>
             </div>
         </div>
