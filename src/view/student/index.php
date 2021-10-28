@@ -1,5 +1,5 @@
 <?php
-include("../student/partials/header.php")
+include("partials/header.php")
 ?>
 <div class="main-content">
     <div class="wrapper" style="width: 100%;">
@@ -44,5 +44,5 @@ include("../student/partials/header.php")
     </div>
 </div>
 <?php
-include("../student/partials/footer.php")
+include("partials/footer.php")
 ?>
