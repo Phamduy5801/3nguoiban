@@ -20,7 +20,7 @@ if (!isset($_SESSION['done'])) {
                     <th>Tên giảng viên</th>
                     <th>Ngày đăng kí</th>
                     <th>Tên môn học</th>
-                    <th>Lớp học</th>
+                    <th>Phòng học</th>
                     <th>Sửa</th>
                 </tr>
             </thead>
@@ -28,7 +28,7 @@ if (!isset($_SESSION['done'])) {
                 //gọi file config để kết noosi co so du lieu
                 include_once("../../config/config.php");
                 //câu lệNh sql
-                $query = "Select dki.id, sb.sb_id, st.st_ten, tea.tea_ten, dki.ngay_dki, sb.sb_ten, dki.lop_hoc from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
+                $query = "Select dki.id, sb.sb_id, st.st_ten, tea.tea_ten, dki.ngay_dki, sb.sb_ten, dki.phong_hoc from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
                 where st.st_id = dki.st_id and sb.sb_id = dki.sb_id and tea.tea_id = dki.tea_id ";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
@@ -55,7 +55,7 @@ if (!isset($_SESSION['done'])) {
                         <td><?php echo $dki['tea_ten'] ?></td>
                         <td><?php echo $dki['ngay_dki'] ?></td>
                         <td><?php echo $dki['sb_ten'] ?></td>
-                        <td><?php echo $dki['lop_hoc'] ?></td>
+                        <td><?php echo $dki['phong_hoc'] ?></td>
                         <td colspan="1">
                             <a class="btn btn-success bt-add" href="update-dkihoc.php?id=<?php echo $dki['id'] ?>"><i class="fa-solid fa-wrench"></i></a>
                         </td>

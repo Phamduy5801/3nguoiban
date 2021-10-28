@@ -17,11 +17,12 @@ if (!isset($_SESSION['done'])) {
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
+                        <th>Khoa</th>
+                        <th>Username</th>
                         <th>Tên</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
                         <th>Địa chỉ</th>
-                        <th>Khoa</th>
                         <th>Sửa</th>
                         <th>Xóa</th>
                     </tr>
@@ -30,8 +31,8 @@ if (!isset($_SESSION['done'])) {
                 //gọi file config để kết nô
                 include_once("../../config/config.php");
                 //câu lệNh sql
-                $query = "Select tea_id, tea_ten, tea_sdt, tea_email, tea_diachi, ten_khoa  from db_teacher , db_khoa 
-                where db_khoa.ma_khoa = db_teacher.ma_khoa  ";
+                $query = "Select tea_id, ten_khoa, db_user.username , tea_ten, tea_sdt, tea_email, tea_diachi from db_teacher, db_user , db_khoa 
+                where db_khoa.ma_khoa = db_teacher.ma_khoa and db_user.user_id = db_teacher.user_id ";
                 //thực thi câu lệNh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của biẾn result
@@ -52,11 +53,12 @@ if (!isset($_SESSION['done'])) {
                     <tr>
                         <!-- lấy dữ liệu từ mảng hiển thị lên bảng -->
                         <td><?php echo $tea['tea_id'] ?></td>
+                        <td><?php echo $tea['ten_khoa'] ?></td>
+                        <td><?php echo $tea['username'] ?></td>
                         <td><?php echo $tea['tea_ten'] ?></td>
                         <td><?php echo $tea['tea_sdt'] ?></td>
                         <td><?php echo $tea['tea_email'] ?></td>
                         <td><?php echo $tea['tea_diachi'] ?></td>
-                        <td><?php echo $tea['ten_khoa'] ?></td>
                         <td>
                             <a class="btn btn-success bt-add" href="update-teacher.php?tea_id=<?php echo $tea['tea_id'] ?>"><i class="fa-solid fa-wrench"></i></a>
                         </td>
