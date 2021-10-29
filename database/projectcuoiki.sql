@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `damnhiemmh` (
   `id` int(11) NOT NULL,
   `tea_id` int(11) NOT NULL,
-  `sb_id` char(15) COLLATE utf8mb4_unicode_ci NOT NULL
+  `sb_id` char(15) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -41,11 +41,11 @@ CREATE TABLE `damnhiemmh` (
 
 CREATE TABLE `db_dkihoc` (
   `id` int(11) NOT NULL,
-  `sb_id` char(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `st_id` char(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sb_id` char(15) COLLATE utf8mb4_general_ci NOT NULL,
+  `st_id` char(20) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_id` int(11) NOT NULL,
   `ngay_dki` date NOT NULL,
-  `phong_hoc` char(15) COLLATE utf8mb4_unicode_ci NOT NULL
+  `phong_hoc` char(15) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -55,9 +55,9 @@ CREATE TABLE `db_dkihoc` (
 --
 
 CREATE TABLE `db_khoa` (
-  `ma_khoa` char(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ten_khoa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tb_khoa` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL
+  `ma_khoa` char(25) COLLATE utf8mb4_general_ci NOT NULL,
+  `ten_khoa` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `tb_khoa` varchar(1000) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `db_teacher` (
   `ma_khoa` char(25) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_ten` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_sdt` char(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `tea_email` char(50) COLLATE utf8mb4_general_ciNOT NULL,
+  `tea_email` char(50) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_diachi` char(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
