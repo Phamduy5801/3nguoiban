@@ -16,7 +16,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <form action="" method="POST">
+                    <form action="process/search-subject.php" method="POST">
                         <td scope="row" style="width: 200px;">
                             <div class="input-group input-group-sm mb-3" style="width: 100%;">
                                 <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
