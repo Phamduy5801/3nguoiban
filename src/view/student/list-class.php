@@ -55,10 +55,47 @@
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </td>
-
                 </tr>
             </tbody>
         </table>
+        <div class="container-fluid clear">
+        <div class="d-flex justify-content-center d-flex align-items-center" style="height: 200px;">
+            <p class="h1">Danh sách lớp học</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include_once ('../../config/config.php');
+                $sql = "select * from db_subject";
+                $result = $conn->query($sql);
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                ?>
+                        <tr>
+                            <th scope="row"><?php echo $row['id']; ?> </th>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+                            <td><?php echo $row['quantity']; ?></td>
+
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
         <div class="clearfix"></div>
 
     </div>

@@ -130,7 +130,7 @@ CREATE TABLE `db_teacher` (
   `ma_khoa` char(25) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_ten` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_sdt` char(15) COLLATE utf8mb4_general_ci NOT NULL,
-  `tea_email` char(50) COLLATE utf8mb4_general_ciNOT NULL,
+  `tea_email` char(50) COLLATE utf8mb4_general_ci NOT NULL,
   `tea_diachi` char(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
