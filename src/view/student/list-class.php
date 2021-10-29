@@ -2,61 +2,16 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Danh sách lớp đăng ký học tập</h1>
-        <br><br>
-        <table class="table table-bordered" style="border: solid;">
-            <thead>
-                <tr>
-                    <th scope="col">Mã môn</th>
-                    <th scope="col">Tên Môn</th>
-                    <th scope="col">Trạng thái</th>
-                    <th scope="col">Đã đăng ký</th>
-                    <th scope="col">Khoa</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <form action="process/search-subject.php" method="POST">
-                        <td scope="row" style="width: 200px;">
-                            <div class="input-group input-group-sm mb-3" style="width: 100%;">
-                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </td>
-                        <td scope="row" style="width: 200px;">
-                            <div class="input-group input-group-sm mb-3" style="width: 100%;">
-                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </td>
-                        <td scope="row" style="width: 200px;">
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected></option>
-                                <option value="1">Có thể đăng ký</option>
-                                <option value="2">Đã đầy</option>
-                            </select>
-                        </td>
-                        <td scope="row" style="width: 200px;">
-                            <div class="input-group input-group-sm mb-3" style="width: 100%;">
-                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </td>
-                        </td>
-                        <td scope="row" style="width: 200px;">
-                            <div class="input-group input-group-sm mb-3" style="width: 100%;">
-                                <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </td>
-                    </form>
-                </tr>
-            </tbody>
-        </table>
         <div class="container-fluid clear">
             <div class="d-flex justify-content-center d-flex align-items-center" style="height: 200px;">
                 <p class="h1">Danh sách lớp học</p>
             </div>
+            <form action="" method="GET" style="width: 20%;">
+                <div class="input-group mb-3">
+                    <input name="search" type="text" class="form-control" placeholder="Mã lớp" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Tìm kiếm</button>
+                </div>
+            </form>
             <table class="table">
                 <thead>
                     <tr>
@@ -73,9 +28,16 @@
                 <tbody>
                     <?php
                     include_once('../../config/config.php');
-                    $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
-                from db_subject, db_teacher 
-                where db_subject.tea_id = db_teacher.tea_id";
+                    if (isset($_GET['search']) && !empty($_GET['search'])) {
+                        $key = $_GET['search'];
+                        $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
+                        from db_subject, db_teacher 
+                        where db_subject.tea_id = db_teacher.tea_id and sb_id like '$key'";
+                    } else {
+                        $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
+                        from db_subject, db_teacher 
+                        where db_subject.tea_id = db_teacher.tea_id";
+                    }
                     $result = mysqli_query($conn, $sql);
 
                     if ($result == true) {
