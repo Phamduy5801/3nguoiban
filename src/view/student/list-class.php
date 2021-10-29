@@ -32,7 +32,7 @@
                         $key = $_GET['search'];
                         $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
                         from db_subject, db_teacher 
-                        where db_subject.tea_id = db_teacher.tea_id and sb_id like '$key'";
+                        where db_subject.tea_id = db_teacher.tea_id and sb_id like '%$key%'";
                     } else {
                         $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
                         from db_subject, db_teacher 
