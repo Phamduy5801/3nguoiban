@@ -15,8 +15,8 @@
 <body>
     <section class="vh-100">
         <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-12 col-xl-11">
+            <div class="row d-flex justify-content-center align-items-center h-100" >
+                <div class="col-lg-12 col-xl-11" >
                     <div class="card text-black" style="border-radius: 25px;">
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
@@ -73,11 +73,28 @@
         $query = "select * from db_user where username='$username1' and password='$passw'";
         $result = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($result) > 0) {
-            $_SESSION['done'] = $username1;
-            header("Location: src/view/admin/index-admin.php");
-        } else {
-            header("Location: login.php");
+        $user = array();
+                //chạy vòng lặp để lấy dữ liệu theo từng hàng 
+        while ($r = $result->fetch_array(MYSQLI_BOTH)) {
+            $user[] = $r;
+        }
+        //duyệt dữ liệu từ mảng gán vào biến $st
+        for ($i = 0; $i < count($user); $i++) {
+            $us = $user[$i];
+            if (mysqli_num_rows($result) > 0) {
+                if($us['role_id'] == 1){
+                    $_SESSION['admin'] = $username1;
+                    header("Location: src/view/admin/index-admin.php");
+                }else if($us['role_id'] == 2){
+                    $_SESSION['teacher'] = $username1;
+                    header("Location: src/view/teacher/index.php");
+                }else if($us['role_id'] == 3){
+                    $_SESSION['student'] = $username1;
+                    header("Location: src/view/student/index.php");
+                }
+            } else {
+                header("Location: login.php");
+            }
         }
     }
     // ?>
