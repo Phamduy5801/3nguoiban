@@ -22,8 +22,7 @@ if (!isset($_SESSION['teacher'])) {
                         <th>Số điện thoại</th>
                         <th>Email</th>
                         <th>Địa chỉ</th>
-                        <th>Sửa</th>
-                        <th>Xóa</th>
+                        <th>Sửa</th>                       
                     </tr>
                 </thead>
                
@@ -62,9 +61,6 @@ if (!isset($_SESSION['teacher'])) {
                         <td colspan="1"><?php echo $st['st_diachi'] ?></td>
                         <td colspan="1">
                             <a class="btn btn-success bt-add" href="dexuat-sua-student.php?st_id=<?php echo $st['st_id']  ?>"><i class="fa-solid fa-wrench"></i></a>
-                        </td>
-                        <td colspan="1">
-                            <a onclick="return confirm('Bạn có chắc xoá sinh viên <?php echo $st['st_ten'] ?> ?')" class="btn btn-danger" href="dexuat-xoa-student.php?st_id=<?php echo $st['st_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php
