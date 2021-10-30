@@ -11,8 +11,6 @@ if (!isset($_SESSION['teacher'])) {
         <h1 style="color:#a83232">Sửa thông tin sinh viên</h1>
         <br>
         <div class="container">
-            <a class="btn btn-primary bt-add" href="dexuat-them-student.php" value="">Thêm mới sinh viên</a>
-            <br><br>
             <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
