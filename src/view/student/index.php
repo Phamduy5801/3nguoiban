@@ -1,8 +1,11 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['student'])){
-        header("Location: ../../../login.php");
-    }
+<?php
+session_start();
+if (!isset($_SESSION['student'])) {
+    header("Location: ../../../login.php");
+}
+if (!isset($_COOKIE['name'])) {
+    header("Location: ../../../login.php");
+}
 ?>
 <?php
 include("partials/header.php")
@@ -12,36 +15,36 @@ include("partials/header.php")
         <div class="container">
             <!-- Lựa chọn của admin -->
             <div class="col-6 text-center box">
-            <a href="#">
-                <div class="icon-group">
-                    <i class="fas fa-university"></i>
-                </div>
-                Thông tin cá nhân
+                <a href="#">
+                    <div class="icon-group">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    Thông tin cá nhân
                 </a>
             </div>
-             <!-- Lựa chọn của admin -->
+            <!-- Lựa chọn của admin -->
             <div class="col-6 text-center box">
                 <a href="#">
-                <div class="icon-group">
-                    <i class="fas fa-university"></i>
-                </div>
-                Khoa
+                    <div class="icon-group">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    Khoa
                 </a>
             </div>
             <div class="col-6 text-center box">
                 <a href="credits-registration.php">
-                <div class="icon-group">
-                    <i class="fas fa-university"></i>
-                </div>
-                Đăng ký môn học
+                    <div class="icon-group">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    Đăng ký môn học
                 </a>
             </div>
             <div class="col-6 text-center box">
                 <a href="list-class.php">
-                <div class="icon-group">
-                    <i class="fas fa-university"></i>
-                </div>
-                Thông tin lớp
+                    <div class="icon-group">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    Thông tin lớp
                 </a>
             </div>
         </div>

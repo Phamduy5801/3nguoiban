@@ -3,6 +3,9 @@
     if(!isset($_SESSION['teacher'])){
         header("Location: ../../../login.php");
     }
+    if (!isset($_COOKIE['name'])) {
+        header("Location: ../../../login.php");
+    }
 ?>
 <?php
 include("partials/header.php")
