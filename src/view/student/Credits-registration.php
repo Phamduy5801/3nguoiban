@@ -31,6 +31,7 @@ include("partials/header.php")
                         <th scope="col">STT</th>
                         <th scope="col">Môn</th>
                         <th scope="col">Mã học sinh</th>
+                        <th scope="col">Giáo viên chủ nhiệm</th>
                         <th scope="col">Ngày đăng ký</th>
                         <th scope="col">Hủy</th>
                     </tr>
@@ -53,7 +54,8 @@ include("partials/header.php")
                                 <td><?php echo $row['st_id']; ?></td>
                                 <td><?php echo $row['tea_ten']; ?></td>
                                 <td><?php  echo $row['ngay_dki']; ?></td>
-                                <td><a class="btn btn-danger" href=""><i class="fa-solid fa-x"></i></a></td>
+                                <td><a onclick="return confirm('Bạn có chắc xoá môn <?php echo $row['sb_id'] ?>  ?')" class="btn btn-danger" href="process/delete-credits.php?id=<?php echo $row['id'] ?>"><i class="fa-solid fa-x"></i></a></td>
+
                             </tr>
                     <?php
                             }
