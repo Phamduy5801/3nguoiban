@@ -33,7 +33,7 @@ CREATE TABLE `db_dkihoc` (
   `sb_id` char(15) NOT NULL,
   `st_id` char(20) NOT NULL,
   `ngay_dki` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,7 +45,7 @@ CREATE TABLE `db_khoa` (
   `ma_khoa` char(25) NOT NULL,
   `ten_khoa` varchar(255) NOT NULL,
   `tb_khoa` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `db_khoa`
@@ -73,7 +73,7 @@ CREATE TABLE `db_student` (
   `st_sdt` char(15) NOT NULL,
   `st_email` char(30) NOT NULL,
   `st_diachi` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `db_student`
@@ -96,7 +96,7 @@ CREATE TABLE `db_subject` (
   `ngay_ketthuc` date NOT NULL,
   `thoigian_hoc` varchar(50) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `db_subject`
@@ -121,7 +121,7 @@ CREATE TABLE `db_teacher` (
   `tea_sdt` char(15) NOT NULL,
   `tea_email` char(50) NOT NULL,
   `tea_diachi` char(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `db_teacher`
@@ -145,7 +145,7 @@ CREATE TABLE `db_user` (
   `password` char(255) NOT NULL,
   `email` char(255) NOT NULL,
   `created_time` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `db_user`
@@ -169,7 +169,7 @@ INSERT INTO `db_user` (`user_id`, `role_id`, `username`, `password`, `email`, `c
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` char(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `role`
@@ -190,7 +190,7 @@ CREATE TABLE `teacher_subject` (
   `id` int(11) NOT NULL,
   `tea_id` int(11) NOT NULL,
   `sb_id` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Chỉ mục cho các bảng đã đổ

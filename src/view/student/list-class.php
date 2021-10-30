@@ -39,13 +39,13 @@ if (!isset($_COOKIE['name'])) {
                     include_once('../../config/config.php');
                     if (isset($_GET['search']) && !empty($_GET['search'])) {
                         $key = $_GET['search'];
-                        $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
-                        from db_subject, db_teacher 
-                        where db_subject.tea_id = db_teacher.tea_id and sb_id like '%$key%'";
+                        $sql = "select db_subject.sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
+                        from db_subject, db_teacher, teacher_subject
+                        where db_subject.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id and teacher_subject.sb_id like '%$key%'";
                     } else {
-                        $sql = "select sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
-                        from db_subject, db_teacher 
-                        where db_subject.tea_id = db_teacher.tea_id";
+                        $sql = "select db_subject.sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi 
+                        from db_subject, db_teacher, teacher_subject
+                        where db_subject.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id";
                     }
                     $result = mysqli_query($conn, $sql);
 
