@@ -25,7 +25,7 @@ if (!isset($_SESSION['admin'])) {
                 //gọi file config để kết noosi co so du lieu
                 include_once("../../config/config.php");
                 //câu lệNh sql
-                $query = "Select dki.id, sb.sb_id, st.st_ten, dki.ngay_dki, sb.sb_ten from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
+                $query = "Select dki.id, sb.sb_id, st.st_ten, dki.ngay_dki, sb.sb_ten from db_dkihoc dki, db_student st, db_subject sb 
                 where st.st_id = dki.st_id and sb.sb_id = dki.sb_id ";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);

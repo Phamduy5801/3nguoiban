@@ -9,10 +9,10 @@
 <!-- Start main -->
 <div class="main-content">
     <div class="wrapper">
-        <h1 style="color:#a83232">Quản lý chức năng</h1>
+        <h1 style="color:#a83232">Quản lý chức vụ</h1>
         <br>
         <div class="container">
-            <a class="btn btn-primary bt-add" href="add-role.php">Thêm mới chức năng</a>
+            <a class="btn btn-primary bt-add" href="add-role.php">Thêm mới chức vụ</a>
             <br><br>
             <table class="table table-striped">
             <thead class="table-dark">
@@ -48,17 +48,15 @@
                         <td><?php echo $ro['role_id'] ?></td>
                         <td><?php echo $ro['role_name'] ?></td>
                         <td>
-                            <a onclick="return confirm('Bạn có chắc xoá chức năng <?php echo $ro['role_name'] ?>  ?')" class="btn btn-danger" href="delete-role.php?role_id=<?php echo $ro['role_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
+                            <a onclick="return confirm('Bạn có chắc xoá chức vụ <?php echo $ro['role_name'] ?>  ?')" class="btn btn-danger" href="delete-role.php?role_id=<?php echo $ro['role_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
                         </td>
                     </tr>
                 <?php
                 }
                 ?>
-
             </table>
         </div>
         <div class="clearfix"></div>
-
     </div>
 </div>
 <!-- End main -->
