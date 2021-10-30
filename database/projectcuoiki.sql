@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: localhost
--- Thời gian đã tạo: Th10 29, 2021 lúc 01:00 PM
--- Phiên bản máy phục vụ: 8.0.17
--- Phiên bản PHP: 7.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Oct 30, 2021 at 12:12 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,25 +18,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `projectcuoiki`
+-- Database: `projectcuoiki`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `damnhiemmn`
+-- Table structure for table `damnhiemmn`
 --
 
 CREATE TABLE `damnhiemmn` (
   `id` int(11) NOT NULL,
   `tea_id` int(11) NOT NULL,
   `sb_id` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_dkihoc`
+-- Table structure for table `db_dkihoc`
 --
 
 CREATE TABLE `db_dkihoc` (
@@ -45,31 +44,31 @@ CREATE TABLE `db_dkihoc` (
   `sb_id` char(15) NOT NULL,
   `st_id` char(20) NOT NULL,
   `tea_id` int(11) NOT NULL,
-  `ngay_dki` date NOT NULL,
-  `phong_hoc` char(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ngay_dki` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_dkihoc`
+-- Dumping data for table `db_dkihoc`
 --
 
-INSERT INTO `db_dkihoc` (`id`, `sb_id`, `st_id`, `tea_id`, `ngay_dki`, `phong_hoc`) VALUES
-(1, 'HQTCSDL', '1951060664', 1, '2021-10-28', '419A3');
+INSERT INTO `db_dkihoc` (`id`, `sb_id`, `st_id`, `tea_id`, `ngay_dki`) VALUES
+(1, 'HQTCSDL', '1951060664', 1, '2021-10-28'),
+(68, 'CNW', '1951060664', 1, '2021-10-30');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_khoa`
+-- Table structure for table `db_khoa`
 --
 
 CREATE TABLE `db_khoa` (
   `ma_khoa` char(25) NOT NULL,
   `ten_khoa` varchar(255) NOT NULL,
   `tb_khoa` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_khoa`
+-- Dumping data for table `db_khoa`
 --
 
 INSERT INTO `db_khoa` (`ma_khoa`, `ten_khoa`, `tb_khoa`) VALUES
@@ -82,7 +81,7 @@ INSERT INTO `db_khoa` (`ma_khoa`, `ten_khoa`, `tb_khoa`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_student`
+-- Table structure for table `db_student`
 --
 
 CREATE TABLE `db_student` (
@@ -94,10 +93,10 @@ CREATE TABLE `db_student` (
   `st_sdt` char(15) NOT NULL,
   `st_email` char(30) NOT NULL,
   `st_diachi` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_student`
+-- Dumping data for table `db_student`
 --
 
 INSERT INTO `db_student` (`st_id`, `user_id`, `ma_khoa`, `st_ten`, `st_lop`, `st_sdt`, `st_email`, `st_diachi`) VALUES
@@ -106,7 +105,7 @@ INSERT INTO `db_student` (`st_id`, `user_id`, `ma_khoa`, `st_ten`, `st_lop`, `st
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_subject`
+-- Table structure for table `db_subject`
 --
 
 CREATE TABLE `db_subject` (
@@ -118,20 +117,21 @@ CREATE TABLE `db_subject` (
   `ngay_ketthuc` date NOT NULL,
   `thoigian_hoc` varchar(50) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_subject`
+-- Dumping data for table `db_subject`
 --
 
 INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `tea_id`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `sb_tinchi`) VALUES
 ('CNW', 'KTPM', 1, 'Công nghệ web', '2021-09-10', '2021-10-28', 'Tiết 7-9 (12h55-15h35) Thứ 2 và thứ 5', 3),
+('CNW01', 'KTPM', 1, '[value-4]', '0000-00-00', '0000-00-00', '[value-7]', 0),
 ('HQTCSDL', 'KTPM', 2, 'Hệ quản trị cơ sở dữ liệu', '2021-09-01', '2021-10-26', 'Tiết 7-9 (12h55-15h35)', 3);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_teacher`
+-- Table structure for table `db_teacher`
 --
 
 CREATE TABLE `db_teacher` (
@@ -142,10 +142,10 @@ CREATE TABLE `db_teacher` (
   `tea_sdt` char(15) NOT NULL,
   `tea_email` char(50) NOT NULL,
   `tea_diachi` char(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_teacher`
+-- Dumping data for table `db_teacher`
 --
 
 INSERT INTO `db_teacher` (`tea_id`, `user_id`, `ma_khoa`, `tea_ten`, `tea_sdt`, `tea_email`, `tea_diachi`) VALUES
@@ -156,7 +156,7 @@ INSERT INTO `db_teacher` (`tea_id`, `user_id`, `ma_khoa`, `tea_ten`, `tea_sdt`, 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `db_user`
+-- Table structure for table `db_user`
 --
 
 CREATE TABLE `db_user` (
@@ -165,11 +165,11 @@ CREATE TABLE `db_user` (
   `username` char(255) NOT NULL,
   `password` char(255) NOT NULL,
   `email` char(255) NOT NULL,
-  `created_time` timestamp NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `created_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `db_user`
+-- Dumping data for table `db_user`
 --
 
 INSERT INTO `db_user` (`user_id`, `role_id`, `username`, `password`, `email`, `created_time`) VALUES
@@ -184,16 +184,16 @@ INSERT INTO `db_user` (`user_id`, `role_id`, `username`, `password`, `email`, `c
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` char(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Đang đổ dữ liệu cho bảng `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_name`) VALUES
@@ -202,11 +202,11 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (3, 'Student');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `damnhiemmn`
+-- Indexes for table `damnhiemmn`
 --
 ALTER TABLE `damnhiemmn`
   ADD PRIMARY KEY (`id`),
@@ -214,7 +214,7 @@ ALTER TABLE `damnhiemmn`
   ADD KEY `sb_id` (`sb_id`);
 
 --
--- Chỉ mục cho bảng `db_dkihoc`
+-- Indexes for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
   ADD PRIMARY KEY (`id`),
@@ -223,13 +223,13 @@ ALTER TABLE `db_dkihoc`
   ADD KEY `tea_id` (`tea_id`);
 
 --
--- Chỉ mục cho bảng `db_khoa`
+-- Indexes for table `db_khoa`
 --
 ALTER TABLE `db_khoa`
   ADD PRIMARY KEY (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_student`
+-- Indexes for table `db_student`
 --
 ALTER TABLE `db_student`
   ADD PRIMARY KEY (`st_id`),
@@ -237,7 +237,7 @@ ALTER TABLE `db_student`
   ADD KEY `ma_khoa` (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_subject`
+-- Indexes for table `db_subject`
 --
 ALTER TABLE `db_subject`
   ADD PRIMARY KEY (`sb_id`),
@@ -245,7 +245,7 @@ ALTER TABLE `db_subject`
   ADD KEY `tea_id` (`tea_id`);
 
 --
--- Chỉ mục cho bảng `db_teacher`
+-- Indexes for table `db_teacher`
 --
 ALTER TABLE `db_teacher`
   ADD PRIMARY KEY (`tea_id`),
@@ -253,65 +253,65 @@ ALTER TABLE `db_teacher`
   ADD KEY `ma_khoa` (`ma_khoa`);
 
 --
--- Chỉ mục cho bảng `db_user`
+-- Indexes for table `db_user`
 --
 ALTER TABLE `db_user`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `role_id` (`role_id`);
 
 --
--- Chỉ mục cho bảng `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `damnhiemmn`
+-- AUTO_INCREMENT for table `damnhiemmn`
 --
 ALTER TABLE `damnhiemmn`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT cho bảng `db_dkihoc`
+-- AUTO_INCREMENT for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
--- AUTO_INCREMENT cho bảng `db_teacher`
+-- AUTO_INCREMENT for table `db_teacher`
 --
 ALTER TABLE `db_teacher`
   MODIFY `tea_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1235;
 
 --
--- AUTO_INCREMENT cho bảng `db_user`
+-- AUTO_INCREMENT for table `db_user`
 --
 ALTER TABLE `db_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT cho bảng `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Các ràng buộc cho các bảng đã đổ
+-- Constraints for dumped tables
 --
 
 --
--- Các ràng buộc cho bảng `damnhiemmn`
+-- Constraints for table `damnhiemmn`
 --
 ALTER TABLE `damnhiemmn`
   ADD CONSTRAINT `damnhiemmn_ibfk_1` FOREIGN KEY (`tea_id`) REFERENCES `db_teacher` (`tea_id`),
   ADD CONSTRAINT `damnhiemmn_ibfk_2` FOREIGN KEY (`sb_id`) REFERENCES `db_subject` (`sb_id`);
 
 --
--- Các ràng buộc cho bảng `db_dkihoc`
+-- Constraints for table `db_dkihoc`
 --
 ALTER TABLE `db_dkihoc`
   ADD CONSTRAINT `db_dkihoc_ibfk_1` FOREIGN KEY (`sb_id`) REFERENCES `db_subject` (`sb_id`),
@@ -319,28 +319,28 @@ ALTER TABLE `db_dkihoc`
   ADD CONSTRAINT `db_dkihoc_ibfk_3` FOREIGN KEY (`tea_id`) REFERENCES `db_teacher` (`tea_id`);
 
 --
--- Các ràng buộc cho bảng `db_student`
+-- Constraints for table `db_student`
 --
 ALTER TABLE `db_student`
   ADD CONSTRAINT `db_student_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `db_user` (`user_id`),
   ADD CONSTRAINT `db_student_ibfk_2` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`);
 
 --
--- Các ràng buộc cho bảng `db_subject`
+-- Constraints for table `db_subject`
 --
 ALTER TABLE `db_subject`
   ADD CONSTRAINT `db_subject_ibfk_1` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`),
   ADD CONSTRAINT `db_subject_ibfk_2` FOREIGN KEY (`tea_id`) REFERENCES `db_teacher` (`tea_id`);
 
 --
--- Các ràng buộc cho bảng `db_teacher`
+-- Constraints for table `db_teacher`
 --
 ALTER TABLE `db_teacher`
   ADD CONSTRAINT `db_teacher_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `db_user` (`user_id`),
   ADD CONSTRAINT `db_teacher_ibfk_2` FOREIGN KEY (`ma_khoa`) REFERENCES `db_khoa` (`ma_khoa`);
 
 --
--- Các ràng buộc cho bảng `db_user`
+-- Constraints for table `db_user`
 --
 ALTER TABLE `db_user`
   ADD CONSTRAINT `db_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
