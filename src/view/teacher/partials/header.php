@@ -14,11 +14,12 @@
 <div class="menu text-center">
         <div class="wrapper">
             <ul>
-                <li><a href="index.php">Trang chủ</a></li>
-                <li><a href="#">Thông tin cá nhân</a></li>
+                <li><a href="index.php">Trang chủ</a></li>           
                 <li><a href="list-teacher.php">Giảng viên</a></li>
                 <li><a href="list-student.php">Danh sách sinh viên</a></li>
                 <li><a href="update-subject.php">Môn học</a></li>
+                <li><a href="inf-khoa.php">Khoa</a></li>
+                <li><a href="de-xuat.php">Đề xuất</a></li>
                 <li><a href="../../../logout.php">Đăng xuất</a></li>
             </ul>
         </div>
