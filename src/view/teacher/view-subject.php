@@ -1,9 +1,9 @@
 
 <?php 
-    // session_start();
-    // if(!isset($_SESSION['done'])){
-    //     header("Location: ../../../login.php");
-    // }
+    session_start();
+    if(!isset($_SESSION['teacher'])){
+        header("Location: ../../../login.php");
+    }
 ?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
@@ -25,15 +25,15 @@
                     <th>Thời gian học</th>
                     <th>Giảng viên</th>
                     <th>Số tín chỉ</th>
-                    
-                   
+                    <th>Thông báo</th>
+                 
                 </tr>
             </thead>
                 <?php
                 //gọi file config để kết nô
-                include_once ("../../config/config.php");
+                include_once ("config/config.php");
                 //câu lệNh sql
-                $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc, tea_ten, sb_tinchi   from db_subject , db_khoa , db_teacher
+                $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc, tea_ten, sb_tinchi, sb_tb   from db_subject , db_khoa , db_teacher
                 where db_khoa.ma_khoa = db_subject.ma_khoa and db_teacher.tea_id = db_subject.tea_id;";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
@@ -62,7 +62,8 @@
                         <td><?php echo $sb['ngay_ketthuc'] ?></td>
                         <td><?php echo $sb['thoigian_hoc'] ?></td>
                         <td><?php echo $sb['tea_ten'] ?></td>
-                        <td><?php echo $sb['sb_tinchi'] ?></td>                      
+                        <td><?php echo $sb['sb_tinchi'] ?></td>  
+                        <td>Tài liệu:<?php echo $sb['sb_tb'] ?></td>                      
                     </tr>
                 <?php
                 }
