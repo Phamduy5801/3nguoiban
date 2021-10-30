@@ -17,19 +17,16 @@ if (!isset($_SESSION['admin'])) {
                     <th>ID</th>
                     <th>Mã môn học</th>
                     <th>Tên sinh viên</th>
-                    <th>Tên giảng viên</th>
                     <th>Ngày đăng kí</th>
                     <th>Tên môn học</th>
-                    <th>Phòng học</th>
-                    <th>Sửa</th>
                 </tr>
             </thead>
                 <?php
                 //gọi file config để kết noosi co so du lieu
                 include_once("../../config/config.php");
                 //câu lệNh sql
-                $query = "Select dki.id, sb.sb_id, st.st_ten, tea.tea_ten, dki.ngay_dki, sb.sb_ten, dki.phong_hoc from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
-                where st.st_id = dki.st_id and sb.sb_id = dki.sb_id and tea.tea_id = dki.tea_id ";
+                $query = "Select dki.id, sb.sb_id, st.st_ten, dki.ngay_dki, sb.sb_ten from db_dkihoc dki, db_student st, db_teacher tea, db_subject sb 
+                where st.st_id = dki.st_id and sb.sb_id = dki.sb_id ";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của $result
@@ -52,13 +49,8 @@ if (!isset($_SESSION['admin'])) {
                         <td><?php echo $dki['id'] ?></td>
                         <td><?php echo $dki['sb_id'] ?></td>
                         <td><?php echo $dki['st_ten'] ?></td>
-                        <td><?php echo $dki['tea_ten'] ?></td>
                         <td><?php echo $dki['ngay_dki'] ?></td>
                         <td><?php echo $dki['sb_ten'] ?></td>
-                        <td><?php echo $dki['phong_hoc'] ?></td>
-                        <td colspan="1">
-                            <a class="btn btn-success bt-add" href="update-dkihoc.php?id=<?php echo $dki['id'] ?>"><i class="fa-solid fa-wrench"></i></a>
-                        </td>
                     </tr>
                 <?php
                 }

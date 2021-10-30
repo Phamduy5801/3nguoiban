@@ -43,40 +43,9 @@
         ?>
         <div class="container">
             <form method="POST" action="">
-
-                Tên giảng viên: 
-                <select class="form-select form-control" name="ten_gv" aria-label="Default select example">
-                    <?php
-                    //kết nối csdl
-                    include_once ("../../config/config.php");
-
-                    //câu lệnh sql
-                    $query = "Select tea_id, tea_ten from db_teacher";
-                    //thực thi câu lệnh sql
-                    $result = $conn->query($query);
-                    //nếU không thực thi đc thì hiển thị lỗi
-                    if (!$result) {
-                        die($conn->error);
-                    }
-                    //gán biến $teacher vào 1 mảng
-                    $teacher = array();
-                    //chạy vòng lặp để lấy dữ liệu theo từng hàng 
-                    while ($r = $result->fetch_array(MYSQLI_BOTH)) {
-                        $teacher[] = $r;
-                    }
-
-                    // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $tea
-                    foreach ($teacher as $tea) {
-                    ?>
-                        <!-- cho admin lựa chọn option với value là role_id và hiển thị trên web là tên của cái role tương ứng với role_id đÓ -->
-                        <option value="<?php echo $tea['tea_id'] ?>"><?php echo $tea['tea_ten'] ?></option>
-                    <?php
-                    }
-                    ?>
-                </select>
-                Lớp học: <input class="form-control" type="text" name="lop_hoc" value="<?php echo $dki['phong_hoc'] ?>" /><br>
+                
               
-                <br>
+                
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

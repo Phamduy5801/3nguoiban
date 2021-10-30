@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 30, 2021 lúc 02:20 PM
+-- Thời gian đã tạo: Th10 30, 2021 lúc 02:41 PM
 -- Phiên bản máy phục vụ: 8.0.17
 -- Phiên bản PHP: 7.3.10
 
@@ -91,13 +91,21 @@ INSERT INTO `db_student` (`st_id`, `user_id`, `ma_khoa`, `st_ten`, `st_lop`, `st
 CREATE TABLE `db_subject` (
   `sb_id` char(15) NOT NULL,
   `ma_khoa` char(25) NOT NULL,
-  `tea_id` int(11) NOT NULL,
   `sb_ten` varchar(50) NOT NULL,
   `ngay_batdau` date NOT NULL,
   `ngay_ketthuc` date NOT NULL,
   `thoigian_hoc` varchar(50) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `db_subject`
+--
+
+INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `sb_tinchi`) VALUES
+('CNW', 'KTPM', 'Công nghệ web', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 2 và thứ 5', 3),
+('HĐH', 'KTPM', 'Hệ điều hành', '2021-10-01', '2021-10-31', 'Tiết 10-12 (15h35-6h20), thứ 5', 3),
+('HQTCSDL', 'KTPM', 'Hệ quản trị cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 4 và thứ 6', 3);
 
 -- --------------------------------------------------------
 
@@ -172,6 +180,18 @@ INSERT INTO `role` (`role_id`, `role_name`) VALUES
 (2, 'Teacher'),
 (3, 'Student');
 
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `teacher_subject`
+--
+
+CREATE TABLE `teacher_subject` (
+  `id` int(11) NOT NULL,
+  `tea_id` int(11) NOT NULL,
+  `sb_id` char(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Chỉ mục cho các bảng đã đổ
 --
@@ -228,6 +248,14 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
+-- Chỉ mục cho bảng `teacher_subject`
+--
+ALTER TABLE `teacher_subject`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tea_id` (`tea_id`),
+  ADD KEY `sb_id` (`sb_id`);
+
+--
 -- AUTO_INCREMENT cho các bảng đã đổ
 --
 
@@ -248,6 +276,12 @@ ALTER TABLE `db_user`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `teacher_subject`
+--
+ALTER TABLE `teacher_subject`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -285,6 +319,13 @@ ALTER TABLE `db_teacher`
 --
 ALTER TABLE `db_user`
   ADD CONSTRAINT `db_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
+
+--
+-- Các ràng buộc cho bảng `teacher_subject`
+--
+ALTER TABLE `teacher_subject`
+  ADD CONSTRAINT `teacher_subject_ibfk_1` FOREIGN KEY (`tea_id`) REFERENCES `db_teacher` (`tea_id`),
+  ADD CONSTRAINT `teacher_subject_ibfk_2` FOREIGN KEY (`sb_id`) REFERENCES `db_subject` (`sb_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
