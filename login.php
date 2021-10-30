@@ -12,7 +12,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body style="background-color: 	rgb(0,255,255); height: 1037px;" class="d-flex justify-content-center">
     <section class="vh-100">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
