@@ -1,11 +1,11 @@
-<?php 
-    session_start();
-    if(!isset($_SESSION['student'])){
-        header("Location: ../../../login.php");
-    }
-    if (!isset($_COOKIE['name'])) {
-        header("Location: ../../../login.php");
-    }
+<?php
+session_start();
+if (!isset($_SESSION['student'])) {
+    header("Location: ../../../login.php");
+}
+if (!isset($_COOKIE['name'])) {
+    header("Location: ../../../login.php");
+}
 ?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
