@@ -3,14 +3,11 @@
     if(!isset($_SESSION['teacher'])){
         header("Location: ../../../login.php");
     }
-<<<<<<< HEAD
+    // check xem cookie con ton tai neu ko ton tai thi tra ve trang login
     if (!isset($_COOKIE['name'])) {
         header("Location: ../../../login.php");
     }
 ?>
-=======
- ?>
->>>>>>> f40709b96b01f17cc40ecfd26801f69d2f80e60a
 <?php
 include("partials/header.php")
 ?>

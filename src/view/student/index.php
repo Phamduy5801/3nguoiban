@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION['student'])) {
     header("Location: ../../../login.php");
 }
+//check xem cookie con tồn tại hay ko nếu không còn thì quay trở về trang login
 if (!isset($_COOKIE['name'])) {
     header("Location: ../../../login.php");
 }
