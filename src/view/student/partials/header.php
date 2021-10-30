@@ -22,7 +22,7 @@
                 <li><a href="#">Giảng viên</a></li>
                 <li><a href="list-class.php">Thông tin lớp</a></li>
                 <li><a href="credits-registration.php">Đăng kí học</a></li>
-                <li><a href="#">Đăng xuất</a></li>
+                <li><a href="../../../logout.php">Đăng xuất</a></li>
             </ul>
         </div>
     </div>
