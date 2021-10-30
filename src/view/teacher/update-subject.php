@@ -1,7 +1,7 @@
-@@ -0,0 +1,85 @@
+
 <?php 
     session_start();
-    if(!isset($_SESSION['done'])){
+    if(!isset($_SESSION['teacher'])){
         header("Location: ../../../login.php");
     }
 ?>
@@ -12,7 +12,7 @@
         <h1 style="color:#a83232">Danh sách môn học</h1>
         <br>
         
-        <a class="btn btn-primary bt-add" href="add-subject.php" value="">Thêm mới môn học</a>
+       
         <br><br>
         <table class="table table-striped">
             <thead class="table-dark">
@@ -25,16 +25,16 @@
                     <th>Thời gian học</th>
                     <th>Giảng viên</th>
                     <th>Số tín chỉ</th>
-                    <th>Sửa</th>
-                    <th>Xoá</th>
+                    <th>Cập nhập</th>
+                   
                 </tr>
             </thead>
                 <?php
                 //gọi file config để kết nô
-                include_once ("../../config/config.php");
+                include_once ("config/config.php");
                 //câu lệNh sql
-                $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc, giang_vien, sb_tinchi   from db_subject , db_khoa 
-                where db_khoa.ma_khoa = db_subject.ma_khoa;";
+                $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc, tea_ten, sb_tinchi   from db_subject , db_khoa , db_teacher
+                where db_khoa.ma_khoa = db_subject.ma_khoa and db_teacher.tea_id = db_subject.tea_id;";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của $result
@@ -61,15 +61,13 @@
                         <td><?php echo $sb['ngay_batdau'] ?></td>
                         <td><?php echo $sb['ngay_ketthuc'] ?></td>
                         <td><?php echo $sb['thoigian_hoc'] ?></td>
-                        <td><?php echo $sb['giang_vien'] ?></td>
+                        <td><?php echo $sb['tea_ten'] ?></td>
                         <td><?php echo $sb['sb_tinchi'] ?></td>
                         <td>
-                            <a class="btn btn-success bt-add" href=" update-subject.php?sb_id=<?php echo $sb['sb_id']?>"><i class="fa-solid fa-wrench"></i></a>
+                            <a class="btn btn-success bt-add" href=" add-subject.php?sb_id=<?php echo $sb['sb_id']?>"><i class="fas fa-edit"></i></a>
                             
                         </td>
-                        <td>
-                        <a onclick="return confirm('Bạn có chắc xoá môn học <?php echo $sb['sb_ten']?> ?')" class="btn btn-danger" href="delete-subject.php?sb_id=<?php echo $sb['sb_id'] ?>"><i class="fa-solid fa-user-slash"></i></a>
-                        </td>
+                        
                     </tr>
                 <?php
                 }
