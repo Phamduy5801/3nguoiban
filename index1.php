@@ -12,7 +12,7 @@
     <title>Hello, world!</title>
 </head>
 <?php
-include("../3nguoiban/src/config/config.php");//abc 
+include("../3nguoiban/src/config/config.php");//abcdèf
 ?>
 
 <body>
