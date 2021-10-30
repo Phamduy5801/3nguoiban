@@ -64,7 +64,7 @@
                         <td><?php echo $sb['thoigian_hoc'] ?></td>
                         <td><?php echo $sb['tea_ten'] ?></td>
                         <td><?php echo $sb['sb_tinchi'] ?></td>
-                        <td>Tài liệu: <?php echo $sb['sb_tb'] ?></td>
+                        <td>Tài liệu: <a href="<?php echo $sb['sb_tb'] ?>"><?php echo $sb['sb_tb'] ?></a></td>                     
                         <td>
                             <a class="btn btn-success bt-add" href=" add-subject.php?sb_id=<?php echo $sb['sb_id']?>"><i class="fas fa-edit"></i></a>
                             

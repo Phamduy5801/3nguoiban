@@ -63,7 +63,7 @@
                         <td><?php echo $sb['thoigian_hoc'] ?></td>
                         <td><?php echo $sb['tea_ten'] ?></td>
                         <td><?php echo $sb['sb_tinchi'] ?></td>  
-                        <td>Tài liệu:<?php echo $sb['sb_tb'] ?></td>                      
+                        <td>Tài liệu: <a href="<?php echo $sb['sb_tb'] ?>"><?php echo $sb['sb_tb'] ?></a></td>                   
                     </tr>
                 <?php
                 }
