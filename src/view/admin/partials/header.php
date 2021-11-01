@@ -16,19 +16,25 @@
     <!-- Start header menu -->
     <div class="menu text-center">
         <div class="wrapper">
-            <ul>
-                <li><a href="index-admin.php">Trang chủ</a></li>
-                <li><a href="user.php">Người dùng</a></li>
-                <li><a href="role.php">Chức vụ</a></li>
-                <li><a href="student.php">Sinh viên</a></li>
-                <li><a href="khoa.php">Khoa</a></li>
-                <li><a href="subject.php">Môn học</a></li>
-                <li><a href="teacher.php">Giảng viên</a></li>
-                <li><a href="tea_sub.php">Phân công</a></li>
-                <li><a href="dkihoc.php">Đăng kí học</a></li>
-                <li><a href="phien_dki.php">Phiên đăng kí</a></li>
-                <li><a href="../../../logout.php">Đăng xuất</a></li>
-            </ul>
+            <div class="row">
+                <div class="col-12">
+                    <ul>
+                        <li><a href="index-admin.php">Trang chủ</a></li>
+                        <li><a href="user.php">Người dùng</a></li>
+                        <li><a href="role.php">Chức vụ</a></li>
+                        <li><a href="student.php">Sinh viên</a></li>
+                        <li><a href="khoa.php">Khoa</a></li>
+                        <li><a href="subject.php">Môn học</a></li>
+                        <li><a href="teacher.php">Giảng viên</a></li>
+                        <li><a href="tea_sub.php">Phân công</a></li>
+                        <li><a href="dkihoc.php">Đăng kí học</a></li>
+                        <li><a href="phien_dki.php">Phiên đăng kí</a></li>
+                        <li><a href="../../../logout.php">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
         </div>
     </div>
     <!-- End header menu -->
