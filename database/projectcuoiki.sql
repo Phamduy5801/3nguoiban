@@ -104,8 +104,13 @@ CREATE TABLE `db_subject` (
   `thoigian_hoc` varchar(50) NOT NULL,
   `hoc_ki` int(11) NOT NULL,
   `sb_tinchi` int(11) NOT NULL,
+<<<<<<< HEAD
   `tbao_monhoc` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+=======
+  `sb_tb` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+>>>>>>> d638adbab776dbb819cd1070a2ebc8fda4676c11
 
 --
 -- Đang đổ dữ liệu cho bảng `db_subject`
