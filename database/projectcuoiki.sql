@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost
--- Thời gian đã tạo: Th10 31, 2021 lúc 07:40 AM
+-- Thời gian đã tạo: Th10 01, 2021 lúc 02:14 AM
 -- Phiên bản máy phục vụ: 8.0.17
 -- Phiên bản PHP: 7.3.10
 
@@ -33,11 +33,7 @@ CREATE TABLE `db_dkihoc` (
   `sb_id` char(15) NOT NULL,
   `st_id` char(20) NOT NULL,
   `ngay_dki` date NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_dkihoc`
@@ -56,11 +52,7 @@ CREATE TABLE `db_khoa` (
   `ma_khoa` char(25) NOT NULL,
   `ten_khoa` varchar(255) NOT NULL,
   `tb_khoa` varchar(1000) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_khoa`
@@ -88,11 +80,7 @@ CREATE TABLE `db_student` (
   `st_sdt` char(15) NOT NULL,
   `st_email` char(30) NOT NULL,
   `st_diachi` varchar(50) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_student`
@@ -114,22 +102,19 @@ CREATE TABLE `db_subject` (
   `ngay_batdau` date NOT NULL,
   `ngay_ketthuc` date NOT NULL,
   `thoigian_hoc` varchar(50) NOT NULL,
+  `hoc_ki` int(11) NOT NULL,
   `sb_tinchi` int(11) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_subject`
 --
 
-INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `sb_tinchi`) VALUES
-('CNW', 'KTPM', 'Công nghệ web', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 2 và thứ 5', 3),
-('CSDL', 'KTPM', 'Cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Thứ 3 và thứ 6', 3),
-('HĐH', 'KTPM', 'Hệ điều hành', '2021-10-01', '2021-10-31', 'Tiết 10-12 (15h35-6h20), thứ 5', 3),
-('HQTCSDL', 'KTPM', 'Hệ quản trị cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 4 và thứ 6', 3);
+INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `hoc_ki`, `sb_tinchi`) VALUES
+('CNW', 'KTPM', 'Công nghệ web', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 2 và thứ 5', 0, 3),
+('CSDL', 'KTPM', 'Cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Thứ 3 và thứ 6', 0, 3),
+('HĐH', 'KTPM', 'Hệ điều hành', '2021-10-01', '2021-10-31', 'Tiết 10-12 (15h35-6h20), thứ 5', 0, 3),
+('HQTCSDL', 'KTPM', 'Hệ quản trị cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 4 và thứ 6', 0, 3);
 
 -- --------------------------------------------------------
 
@@ -145,11 +130,7 @@ CREATE TABLE `db_teacher` (
   `tea_sdt` char(15) NOT NULL,
   `tea_email` char(50) NOT NULL,
   `tea_diachi` char(50) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_teacher`
@@ -174,11 +155,7 @@ CREATE TABLE `db_user` (
   `password` char(255) NOT NULL,
   `email` char(255) NOT NULL,
   `created_time` timestamp NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `db_user`
@@ -198,17 +175,27 @@ INSERT INTO `db_user` (`user_id`, `role_id`, `username`, `password`, `email`, `c
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `phien_dkihoc`
+--
+
+CREATE TABLE `phien_dkihoc` (
+  `id` int(11) NOT NULL,
+  `thoigian_batdau` datetime NOT NULL,
+  `thoigian_ketthuc` datetime NOT NULL,
+  `hoc_ki` int(11) NOT NULL,
+  `status` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `role`
 --
 
 CREATE TABLE `role` (
   `role_id` int(11) NOT NULL,
   `role_name` char(20) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `role`
@@ -229,11 +216,7 @@ CREATE TABLE `teacher_subject` (
   `id` int(11) NOT NULL,
   `tea_id` int(11) NOT NULL,
   `sb_id` char(15) NOT NULL
-<<<<<<< HEAD
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> 03cff24c1691d1c24630b6abe973a815e36106e9
 
 --
 -- Đang đổ dữ liệu cho bảng `teacher_subject`
@@ -294,6 +277,12 @@ ALTER TABLE `db_user`
   ADD KEY `role_id` (`role_id`);
 
 --
+-- Chỉ mục cho bảng `phien_dkihoc`
+--
+ALTER TABLE `phien_dkihoc`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Chỉ mục cho bảng `role`
 --
 ALTER TABLE `role`
@@ -328,6 +317,12 @@ ALTER TABLE `db_teacher`
 --
 ALTER TABLE `db_user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT cho bảng `phien_dkihoc`
+--
+ALTER TABLE `phien_dkihoc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `role`
