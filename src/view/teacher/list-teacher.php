@@ -1,10 +1,12 @@
-@@ -0,0 +1,70 @@
- <?php
-// session_start();
-// if (!isset($_SESSION['done'])) {
-//     header("Location: ../../../login.php");
-// }
-?> 
+
+
+</script>
+<?php 
+    session_start();
+    if(!isset($_SESSION['teacher'])){
+        header("Location: ../../../login.php");
+    }
+?>
 <?php include('partials/header.php'); ?>
 <!-- Start main -->
 <div class="main-content">
@@ -13,7 +15,7 @@
         <br>
         <div class="container">
         <br></br>
-            <table class="table table-striped">
+          <table class="table table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th class="d-flex justify-content-center">ID</th>
@@ -66,6 +68,7 @@
 
     </div>
 </div>
+
 <!-- End main -->
 
 <?php include('partials/footer.php'); ?>
