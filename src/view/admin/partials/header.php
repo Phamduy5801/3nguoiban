@@ -26,6 +26,7 @@
                 <li><a href="teacher.php">Giảng viên</a></li>
                 <li><a href="tea_sub.php">Phân công</a></li>
                 <li><a href="dkihoc.php">Đăng kí học</a></li>
+                <li><a href="phien_dki.php">Phiên đăng kí</a></li>
                 <li><a href="../../../logout.php">Đăng xuất</a></li>
             </ul>
         </div>

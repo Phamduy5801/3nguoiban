@@ -45,8 +45,7 @@
                                             <input type="checkbox" class="form-check-input" onclick="myFunction()">Show password
                                         </div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" class="btn btn-primary btn-lg" style="color:white" name="login">Login</button>
-                                            <a type="submit" class="btn btn-primary btn-lg" style="margin-left:15px" href="register.php">Register</a>
+                                            <button type="submit" class="btn btn-primary btn-lg" style="color:white; margin-top:20px;" name="login">Login</button>
                                         </div>
                                     </form>
 
@@ -69,6 +68,7 @@
         $username1 = $_POST['username'];
         $passw = $_POST['pass'];
         include "src/config/config.php";
+        
         $sql = "SELECT * FROM db_user where username = '$username1'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
