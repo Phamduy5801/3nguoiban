@@ -104,7 +104,7 @@ CREATE TABLE `db_subject` (
   `thoigian_hoc` varchar(50) NOT NULL,
   `hoc_ki` int(11) NOT NULL,
   `sb_tinchi` int(11) NOT NULL,
-  `tbao_monhoc` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+  `sb_tb` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
