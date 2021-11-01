@@ -58,6 +58,7 @@ include("partials/header.php")
                             </tr>
                     <?php
                             }
+                            mysqli_close($conn);
                     }
                     ?>
                 </tbody>

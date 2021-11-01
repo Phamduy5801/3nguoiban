@@ -16,7 +16,7 @@ if ($mamon != null) {
             header('Location:' . SITESDURL . 'credits-registration.php');
         }
         // lay ma sinh vien co username da dc dang nhap trong phien lam viec
-        $sql1 = "SELECT `st_id` FROM `db_student`, `db_user` WHERE db_user.user_id = db_user.user_id and db_user.username = '$username'";
+        $sql1 = "SELECT db_student.st_id FROM `db_student`, `db_user` WHERE db_student.user_id = db_user.user_id and db_user.username = '$username'";
         $result1 = mysqli_query($conn, $sql1);
         if ($result1 == true) {
             if (mysqli_num_rows($result1) > 0)
@@ -38,6 +38,7 @@ if ($mamon != null) {
                     $result3 = mysqli_query($conn, $sql3);
                     if ($result3 > 0) {
                         header('Location:' . SITESDURL . 'credits-registration.php');
+                        mysqli_close($conn);
                     }
                 } else {
                     header('Location:' . SITESDURL . 'credits-registration.php');

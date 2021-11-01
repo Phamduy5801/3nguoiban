@@ -65,6 +65,7 @@ if (!isset($_COOKIE['name'])) {
                             </tr>
                     <?php
                             }
+                            mysqli_close($conn);
                     }
                     ?>
                 </tbody>
