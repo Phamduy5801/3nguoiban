@@ -103,7 +103,8 @@ CREATE TABLE `db_subject` (
   `ngay_ketthuc` date NOT NULL,
   `thoigian_hoc` varchar(50) NOT NULL,
   `hoc_ki` int(11) NOT NULL,
-  `sb_tinchi` int(11) NOT NULL
+  `sb_tinchi` int(11) NOT NULL,
+  `sb_tb` varchar(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
