@@ -34,8 +34,8 @@
                 //gọi file config để kết nô
                 include_once ("config/config.php");
                 //câu lệNh sql
-                $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc, tea_ten, sb_tinchi, sb_tb  from db_subject , db_khoa , db_teacher
-                where db_khoa.ma_khoa = db_subject.ma_khoa and db_teacher.tea_id = db_subject.tea_id;";
+                $query =  $query = "Select s.sb_id,k.ten_khoa, s.sb_ten,s.ngay_batdau, s.ngay_ketthuc, s.thoigian_hoc, t.tea_ten, s.sb_tinchi, s.sb_tb   from db_subject s, db_khoa k, db_teacher t, teacher_subject ts
+                where k.ma_khoa = s.ma_khoa and t.tea_id = ts.tea_id and ts.sb_id = s.sb_id;";
                 // thực thi câu lệnh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của $result
