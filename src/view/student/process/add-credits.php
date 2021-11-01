@@ -26,7 +26,7 @@ if ($mamon != null) {
                 // check xem mon day da dc dang ki chua
             $sql2 = "SELECT db_dkihoc.sb_id, db_student.st_id
             FROM `db_dkihoc`, `db_user`,`db_student` 
-            WHERE db_dkihoc.st_id = db_student.st_id and db_student.user_id = db_user.user_id and  and db_user.username = '$username' and db_dkihoc.sb_id ='$mamon'";
+            WHERE db_dkihoc.st_id = db_student.st_id and db_student.user_id = db_user.user_id and db_user.username = '$username' and db_dkihoc.sb_id ='$mamon'";
             $result2 = mysqli_query($conn, $sql2);
             if ($result2 == true) {
                 $rowcount = mysqli_num_rows($result2);
