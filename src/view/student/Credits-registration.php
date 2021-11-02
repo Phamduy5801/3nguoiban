@@ -38,14 +38,20 @@ include("partials/header.php")
                 </thead>
                 <tbody>
                     <?php
+                    // gọi đến trang config
                     include_once('../../config/config.php');
                     $username = $_SESSION['student'];
+                    // sql
                     $sql = "select db_dkihoc.id, db_dkihoc.sb_id, db_dkihoc.st_id, ngay_dki, db_teacher.tea_ten
                     from db_dkihoc, db_user, db_student, db_teacher , teacher_subject
                     where db_dkihoc.st_id = db_student.st_id and db_dkihoc.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id and db_student.user_id = db_user.user_id and db_user.username = '$username'";
+                    // khỏi tạo câu lệnh
                     $result = mysqli_query($conn, $sql);
+                    // Check xem câu lệnh có tồn tại hay ko
                     if ($result == true) {
+                        // duyệt xem có bnh bản ghi
                         if (mysqli_num_rows($result) > 0)
+                            // lấy ra từng dòng bản ghi trong bảng
                             while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                             <tr>
@@ -58,7 +64,8 @@ include("partials/header.php")
                             </tr>
                     <?php
                             }
-                            mysqli_close($conn);
+                        // đóng kết nối
+                        mysqli_close($conn);
                     }
                     ?>
                 </tbody>

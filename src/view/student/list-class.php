@@ -13,13 +13,13 @@ if (!isset($_COOKIE['name'])) {
     <div class="wrapper">
         <div class="container-fluid clear">
             <div class="d-flex justify-content-center d-flex align-items-center" style="height: 200px;">
-                <p class="h1">Danh sách lớp học</p>
+                <p class="h1">Danh sách môn học</p>
             </div>
             <div class="row">
                 <div class="col d-flex justify-content-start">
                     <form action="" method="GET" style="width: 50%;">
                         <div class="input-group mb-3">
-                            <input name="search" type="text" class="form-control" placeholder="Mã lớp" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            <input name="search" type="text" class="form-control" placeholder="Mã môn" aria-label="Example text with button addon" aria-describedby="button-addon1">
                             <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Tìm kiếm</button>
                         </div>
                     </form>
@@ -67,26 +67,36 @@ if (!isset($_COOKIE['name'])) {
                 <tbody>
                     <?php
                     include_once('../../config/config.php');
+                    //  check xem cái nút seacher có tồn tại hay ko và có giá trị hay ko
                     if (isset($_GET['search']) && !empty($_GET['search'])) {
+                    // lấy giá trị trên thanh tìm kiếm
                         $key = $_GET['search'];
+                    //sql tìm kiếm theo mã môn
                         $sql = "SELECT db_subject.sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, db_subject.hoc_ki, sb_tinchi 
                         from db_subject, db_teacher, teacher_subject
                         where db_subject.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id and teacher_subject.sb_id like '%$key%'";
+                    //  check xem cái nút seacher có tồn tại hay ko và có giá trị hay ko
                     } else if (isset($_GET['find']) && !empty($_GET['find'])) {
+                    // lấy giá trị trên thanh tìm kiếm
+
                         $key = $_GET['find'];
+                    // câu lệnh sql tìm kiếm theo học kì
                         $sql = "SELECT db_subject.sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, db_subject.hoc_ki, sb_tinchi 
                         from db_subject, db_teacher, teacher_subject
                         where db_subject.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id and db_subject.hoc_ki like '$key'";
                     } else {
+                    // nếu như không điền giá trị vào thanh tìm kiếm sẽ hiện ra tất cả các môn
                         $sql = "select db_subject.sb_id, db_subject.ma_khoa, db_teacher.tea_ten, sb_ten, ngay_batdau, ngay_ketthuc, thoigian_hoc, sb_tinchi, db_subject.hoc_ki 
                         from db_subject, db_teacher, teacher_subject
                         where db_subject.sb_id = teacher_subject.sb_id and teacher_subject.tea_id = db_teacher.tea_id";
                     }
-
+                    // khởi tạo câu lệnh
                     $result = mysqli_query($conn, $sql);
-
+                    // check xem câu lệnh có được khởi taok thành công ko
                     if ($result == true) {
+                    // duyệt xem có bnh bản ghi
                         if (mysqli_num_rows($result) > 0)
+                    // gán giá trị từng bản ghi vào mảng row
                             while ($row = mysqli_fetch_assoc($result)) {
                     ?>
                             <tr>
@@ -102,6 +112,7 @@ if (!isset($_COOKIE['name'])) {
                             </tr>
                     <?php
                             }
+                    // đóng kết nối
                         mysqli_close($conn);
                     }
                     ?>
