@@ -22,9 +22,9 @@
                 </tr>
             </thead>
                 <?php
-                //gọi file config để kết nô
+                //gọi file config để kết nôí
                 include_once ("config/config.php");
-                //câu lệNh sql
+                //câu lệnh sql
                 $query = "Select  ma_khoa, ten_khoa, tb_khoa  from  db_khoa ";
                 // thực thi câu lệnh sql 
                 $result = $conn->query($query);

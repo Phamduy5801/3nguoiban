@@ -13,7 +13,6 @@ include("partials/header.php")
         <div class="container">
         <h1 style="color:#a83232">Chỉnh sửa thông tin</h1>
         <br><br>
-            <!-- Lựa chọn của admin -->
             <div class="col-6 text-center box">
             <a href="dexuat-list-teacher.php">
                 <div class="icon-group">
@@ -22,7 +21,7 @@ include("partials/header.php")
                  Giảng viên
                 </a>
             </div>
-             <!-- Lựa chọn của admin -->
+          
 
             <div class="col-6 text-center box">
                 <a href="dexuat-list-student.php">

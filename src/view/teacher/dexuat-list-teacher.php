@@ -27,16 +27,16 @@ if (!isset($_SESSION['teacher'])) {
                     </tr>
                 </thead>
                 <?php
-                //gọi file config để kết nô
+                //gọi file config để kết nôí
                 include_once("config/config.php");
-                //câu lệNh sql
+                //câu lệnh sql
                 $query = "Select tea_id, ten_khoa, db_user.username , tea_ten, tea_sdt, tea_email, tea_diachi from db_teacher, db_user , db_khoa 
                 where db_khoa.ma_khoa = db_teacher.ma_khoa and db_user.user_id = db_teacher.user_id ";
-                //thực thi câu lệNh sql
+                //thực thi câu lệnh sql
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của biẾn result
                 if (!$result) {
-                    //nếu !$result thì die tại đây và hiểN thị lỗi
+                    //nếu !$result thì hiển thị lỗi
                     die($conn->error);
                 }
                 //khởi tạo $teacher = 1 mảng

@@ -27,8 +27,8 @@ if (!isset($_SESSION['teacher'])) {
                 </thead>
                
                 <?php
-                //gọi file config để kết nô
-                include_once("../../config/config.php");
+                //gọi file config để kết nối
+                include_once("config/config.php");
                 //câu lệNh sql
                 $query = "Select st_id, ten_khoa, db_user.username, st_ten, st_lop, st_sdt, st_email, st_diachi  from db_student , db_khoa, db_user
                 where db_khoa.ma_khoa = db_student.ma_khoa and db_student.user_id=db_user.user_id ";
@@ -36,7 +36,7 @@ if (!isset($_SESSION['teacher'])) {
                 $result = $conn->query($query);
                 //kiểm tra sự tồn tại của $result
                 if (!$result) {
-                    //nến không có thì die tại đây là hiển thị lỗi
+                    //nến không có thì hiển thị lỗi
                     die($conn->error);
                 }
                 //khởi tạo $role = 1 mảng

@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if(!isset($_SESSION['teacher'])){
-        header("Location: ../../../login.php");
+        header("Location: ../../../login.php");// đặt bảo vệ
     }
 ?>
 <?php include('partials/header.php'); ?>
@@ -13,10 +13,10 @@
         <?php
         //kiểm tra khởi tạo của biến sb_id
         if (isset($_GET['sb_id'])) {
-            //gán $id = dữ liệu của sb_id
+            //đặt biến $id và gán gtri
             $id = $_GET['sb_id'];
         } else {
-            //nếu khgông đưuọc thì quay về trang subject.php
+            //nếu thất bại thì quay về trang update-subject
             header("Location: update-subject.php");
         }
         //kết nối csdl 
@@ -41,6 +41,7 @@
         
         
         ?>
+        <!-- thiết kế và đặt giá trị vào -->
         <div class="container">
             <form method="POST" action="add-subject.php?sb_id=<?php echo $id ?>">
                 Tên: <input class="form-control" type="text" readonly name="ten" value="<?php echo $sb['sb_ten'] ?>" /><br>
@@ -58,16 +59,16 @@
 <!-- End main -->
 
 <?php
-//kiểm tra ten đã tồn tại hay chưa
+//kiểm tra đã có dữ liệu chưa 
 if (isset($_REQUEST['ten']) && isset($_REQUEST['ngay_bd']) && isset($_REQUEST['ngay_kt'])  && isset($_REQUEST['thoigian_hoc']) && isset($_REQUEST['sb_tb']) ) {
-    //gán $id = dữ liệu của sb_id
+    //đặt biến $id và gán gtri cho nó
     $id = $_GET['sb_id'];
     //kết nối cơ sở dữ liệu
     include_once ("config/config.php");
     //câu lệnh sql
     $query = "UPDATE `db_subject` SET `sb_ten` = ?, `ngay_batdau` = ?, `ngay_ketthuc` = ? ,`thoigian_hoc` = ?,`sb_tb` = ?   WHERE `db_subject`.`sb_id` = ?";
     
-    //khởI tạo đố itượng prepare
+    //khởI tạo đố tượng prepare
     $stmt = $conn->prepare($query);
     //gán biến = dữ liệu lấy từ trong form
     $ten = $_POST['ten'];
@@ -81,7 +82,7 @@ if (isset($_REQUEST['ten']) && isset($_REQUEST['ngay_bd']) && isset($_REQUEST['n
     $stmt->execute();
     //đóng kếT nối
     $conn->close();
-    //trở lại trang subject.php
+    //quay lại trang update-subject
     header("Location: update-subject.php");
 }
 ?>

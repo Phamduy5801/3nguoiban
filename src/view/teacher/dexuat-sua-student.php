@@ -11,12 +11,12 @@
         <h1 style="color:#a83232">Cập nhật thông tin sinh viên</h1>
         <br>
         <?php
-        //kiểm tra khởi tạo của biếN st_id
+        //kiểm tra khởi tạo của biến st_id
         if (isset($_GET['st_id'])) {
             //gán $id = dữ liệu của st_id
             $id = $_GET['st_id'];
         } else {
-            //nếu khgông đưuọc thì quay về trang user.php
+            //nếu thất bại thì về trang index
             header("Location: index.php");
         }
         //kết nối csdl 
@@ -78,7 +78,7 @@ if (isset($_REQUEST['ten'])) {
     $stmt->execute();
     //đóng kếT nối
     $conn->close();
-    //trở lại trang student.php
+    //trở lại trang dexuat-list-student
     header("Location: dexuat-list-student.php");
 }
 ?>

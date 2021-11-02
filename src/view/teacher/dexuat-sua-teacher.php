@@ -16,7 +16,7 @@
             //gán $id = dữ liệu của tea_id
             $id = $_GET['tea_id'];
         } else {
-            //quay trở lại trang teacher.php
+            //quay trở lại trang dexuat-list-teacher
             header("Location: dexuat-list-teacher.php");
         }
         //kết nối cơ sở dữ liệu

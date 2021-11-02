@@ -16,7 +16,7 @@
             //gán $id = dữ liệu của ma_khoa
             $id = $_GET['ma_khoa'];
         } else {
-            //quay trở lại trang khoa.php
+            //quay trở lại trang inf-khoa
             header("Location: inf-khoa.php");
         }
         //kết nối cơ sở dữ liệu mysql
