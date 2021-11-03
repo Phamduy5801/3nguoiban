@@ -50,11 +50,11 @@ a:hover{
     background-color: #f1f2f6;
     padding: 3% 0;
 }
-.col-6{
-    width: 40%;
+
+.col-4{
+    width: 30%;
     background-color: white;
     margin: 1%;
-    margin-left: 70px;
     padding: 2%;
     float: left;
 }

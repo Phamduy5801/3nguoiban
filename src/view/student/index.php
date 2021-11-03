@@ -14,7 +14,7 @@ include("partials/header.php")
 <div class="main-content">
     <div class="wrapper" style="width: 100%;">
         <div class="container">
-            <div class="col-6 text-center box">
+            <div class="col-4 text-center box">
                 <a href="profile.php">
                     <div class="icon-group">
                         <i class="fas fa-university"></i>
@@ -22,7 +22,7 @@ include("partials/header.php")
                     Thông tin cá nhân
                 </a>
             </div>
-            <div class="col-6 text-center box">
+            <div class="col-4 text-center box">
                 <a href="credits-registration.php">
                     <div class="icon-group">
                         <i class="fas fa-university"></i>
@@ -30,7 +30,7 @@ include("partials/header.php")
                     Đăng ký môn học
                 </a>
             </div>
-            <div class="col-6 text-center box">
+            <div class="col-4 text-center box">
                 <a href="list-class.php">
                     <div class="icon-group">
                         <i class="fas fa-university"></i>
