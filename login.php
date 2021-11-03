@@ -68,24 +68,13 @@
         $username1 = $_POST['username'];
         $passw = $_POST['pass'];
         include "src/config/config.php";
-        
+
         $sql = "SELECT * FROM db_user where username = '$username1'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        if ($passw == $row['password']) {
-            $passhash = $passw;
-                //câu lệnh sql
-                $query = "select username, password, role_name from db_user, role where role.role_id=db_user.role_id and
-             username='$username1' and password='$passhash'";
-                $result = mysqli_query($conn, $query);
-                $user = array();
-                //chạy vòng lặp để lấy dữ liệu theo từng hàng 
-                while ($r = $result->fetch_array(MYSQLI_BOTH)) {
-                    $user[] = $r;
-                }
-        } else if ($passw != $row['password']) {
-            $passhash = $row['password'];
-            if (password_verify($passw, $passhash)) {
+        if ($username1 != null && $passw != null) {
+            if ($passw == $row['password']) {
+                $passhash = $passw;
                 //câu lệnh sql
                 $query = "select username, password, role_name from db_user, role where role.role_id=db_user.role_id and
              username='$username1' and password='$passhash'";
@@ -96,29 +85,57 @@
                     $user[] = $r;
                 }
             }
-        }
-            for ($i = 0; $i < count($user); $i++) {
-                $us = $user[$i];
-                if (mysqli_num_rows($result) > 0) {
-
-                    if ($us['role_name'] == 'Admin') {
-                        $_SESSION['admin'] = $username1;
-                        header("Location: src/view/admin/index-admin.php");
-                    } else if ($us['role_name'] == 'Teacher') {
-                        setcookie('name', $username1, time() + 3600);
-                        $_SESSION['teacher'] = $username1;
-                        header("Location: src/view/teacher/index.php");
-                    } else if ($us['role_name'] == 'Student') {
-                        setcookie('name', $username1, time() + 3600);
-                        $_SESSION['student'] = $username1;
-                        header("Location: src/view/student/index.php");
+            if ($passw != $row['password']) {
+                $passhash = $row['password'];
+                if (password_verify($passw, $passhash)) {
+                    //câu lệnh sql
+                    $query = "select username, password, role_name from db_user, role where role.role_id=db_user.role_id and
+             username='$username1' and password='$passhash'";
+                    $result = mysqli_query($conn, $query);
+                    $user = array();
+                    //chạy vòng lặp để lấy dữ liệu theo từng hàng 
+                    while ($r = $result->fetch_array(MYSQLI_BOTH)) {
+                        $user[] = $r;
                     }
                 } else {
-                    header("Location: login.php");
+    ?>
+                    <script>
+                        alert("Sai mật khẩu");
+                        window.history.go(-1);
+                    </script>
+            <?php
                 }
             }
+        } else {
+            ?>
+            <script>
+                alert("Vui lòng không để trống thông tin");
+                window.history.go(-1);
+            </script>
+    <?php
         }
-    
+        for ($i = 0; $i < count($user); $i++) {
+            $us = $user[$i];
+            if (mysqli_num_rows($result) > 0) {
+
+                if ($us['role_name'] == 'Admin') {
+                    $_SESSION['admin'] = $username1;
+                    header("Location: src/view/admin/index-admin.php");
+                } else if ($us['role_name'] == 'Teacher') {
+                    setcookie('name', $username1, time() + 3600);
+                    $_SESSION['teacher'] = $username1;
+                    header("Location: src/view/teacher/index.php");
+                } else if ($us['role_name'] == 'Student') {
+                    setcookie('name', $username1, time() + 3600);
+                    $_SESSION['student'] = $username1;
+                    header("Location: src/view/student/index.php");
+                }
+            } else {
+                header("Location: login.php");
+            }
+        }
+    }
+
     // 
     ?>
 
