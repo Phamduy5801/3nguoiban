@@ -104,19 +104,14 @@ CREATE TABLE `db_subject` (
   `thoigian_hoc` varchar(50) NOT NULL,
   `hoc_ki` int(11) NOT NULL,
   `sb_tinchi` int(11) NOT NULL,
-<<<<<<< HEAD
-  `tbao_monhoc` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `sb_tb` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-=======
-  `sb_tb` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
->>>>>>> d638adbab776dbb819cd1070a2ebc8fda4676c11
 
 --
 -- Đang đổ dữ liệu cho bảng `db_subject`
 --
 
-INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `hoc_ki`, `sb_tinchi`, `tbao_monhoc`) VALUES
+INSERT INTO `db_subject` (`sb_id`, `ma_khoa`, `sb_ten`, `ngay_batdau`, `ngay_ketthuc`, `thoigian_hoc`, `hoc_ki`, `sb_tinchi`, `sb_tb`) VALUES
 ('CNW', 'KTPM', 'Công nghệ web', '2021-10-01', '2021-10-31', 'Tiết 7-9 (12h55-15h35) Thứ 2 và thứ 5', 1, 3, ''),
 ('CSDL', 'KTPM', 'Cơ sở dữ liệu', '2021-10-01', '2021-10-31', 'Thứ 3 và thứ 6', 1, 3, ''),
 ('HĐH', 'KTPM', 'Hệ điều hành', '2021-10-01', '2021-10-31', 'Tiết 10-12 (15h35-6h20), thứ 5', 1, 3, ''),
