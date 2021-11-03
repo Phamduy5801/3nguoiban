@@ -14,7 +14,7 @@ $result = mysqli_query($conn, $sql);
 
 // Check whether the query executed successfully or not
 if ($result == true) {
-    header('Location:' . SITESDURL . 'credits-registration.php');
+    header('Location: ../credits-registration.php');
 } else {
     
 }
