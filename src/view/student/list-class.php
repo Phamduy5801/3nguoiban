@@ -30,12 +30,17 @@ if (!isset($_COOKIE['name'])) {
                             <select name="find" class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option selected>Kì học</option>
                                 <?php
+                                // gọi config
                                 include_once('../../config/config.php');
-                                $username = $_SESSION['student'];
+                                // câu lệnh sql 
                                 $sql = "SELECT distinct hoc_ki from phien_dkihoc";
+                                // khởi tạo câu lệnh
                                 $result = mysqli_query($conn, $sql);
+                                // ktra xem câu lệnh được khởi tạo thành công không
                                 if ($result == true) {
+                                    // kiểm tra xem số bản ghi có lớn hơn 0 không
                                     if (mysqli_num_rows($result) > 0) {
+                                        // gán giá trị từng bản ghi vào biến row
                                         while ($row = mysqli_fetch_assoc($result)) {
                                 ?>
                                             <option value="<?php echo $row['hoc_ki'] ?>"><?php echo $row['hoc_ki'] ?></option>
@@ -43,6 +48,7 @@ if (!isset($_COOKIE['name'])) {
                                         }
                                     }
                                 }
+                                
                                 ?>
                             </select>
                             <button style="height: 40px;" class="btn btn-outline-secondary" type="submit" id="button-addon1">Tìm kiếm</button>
