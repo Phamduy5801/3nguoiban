@@ -56,7 +56,7 @@ if ($mamon != null) {
                                 $result3 = mysqli_query($conn, $sql3);
                                 // check xem có bao nhiêu bản ghi đc thêm
                                 if ($result3 > 0) {
-                                    header('Location: ../../../../login.php');
+                                    header('Location: ../credits-registration.php');
                                     mysqli_close($conn);
                                 }
                                 // nếu môn này đã tồn tại
@@ -72,7 +72,7 @@ if ($mamon != null) {
                     }
                     // nếu không có học kì nào được mở
                     else if (mysqli_num_rows($result4) == 0) {
-                        header('Location: ../../../../login.php');
+                        header('Location: ../credits-registration.php');
                     }
                     // nếu môn này không tồn tại hoặc kì học không được mở
                 } else {
