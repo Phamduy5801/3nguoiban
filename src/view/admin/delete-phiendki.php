@@ -23,7 +23,7 @@
         $stmt->close();
         //đóng kết nối
         $conn->close();
-        //chuyềN về trang trang phiên đăng kíe 
+        //chuyềN về trang trang phiên đăng kí 
         header("Location: phien_dki.php");
     } else {
         //nếu lõi hiển thị lỗi và đóng kết nối

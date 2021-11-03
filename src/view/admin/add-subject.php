@@ -39,7 +39,7 @@
                     // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $kh
                     foreach ($khoa as $kh) {
                     ?>
-                        <!-- cho admin lựa chọn option với value là role_id và hiển thị trên web là tên của cái role tương ứng với role_id đÓ -->
+                        <!-- cho admin lựa chọn option với value là ma_khoa và hiển thị trên web là tên khoa tương ứng với ma_khoa đÓ -->
                         <option value="<?php echo $kh['ma_khoa'] ?>"><?php echo $kh['ten_khoa'] ?></option>
                     <?php
                     }
@@ -51,7 +51,7 @@
                 Ngày kết thúc: <input class="form-control" type="date" name="ngay_ketthuc"><br>
                 Thời gian học: <input class="form-control" type="text" name="thoigian_hoc"/><br>
                 Học kì: 
-                 <!-- tạo ra 1 seclect box cho người dùng lựa chọn danh sách tên khoa -->
+                 <!-- tạo ra 1 seclect box cho người dùng lựa chọn danh sách học kì -->
                  <select class="form-select form-control" name="hoc_ki" aria-label="Default select example">
                     <?php
                     //kết nối csdl
@@ -119,7 +119,7 @@ if (isset($_REQUEST['id']) && isset($_REQUEST['khoa']) && isset($_REQUEST['ten']
     $stmt->execute();
     //đóng kết nối cơ sở dữ liệu
     $conn->close();
-    //chuyển về trang student
+    //chuyển về trang subject
     header("Location: subject.php");
 }
 ob_end_flush ();

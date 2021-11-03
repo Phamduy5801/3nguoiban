@@ -38,7 +38,7 @@
                     // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $us
                     foreach ($user as $us) {
                     ?>
-                        <!-- cho admin lựa chọn option với value là user_id và hiển thị trên web là tên của cái role tương ứng với user_id đÓ -->
+                        <!-- cho admin lựa chọn option với value là user_id và hiển thị trên web là tên của sinh viên tương ứng với user_id đÓ -->
                         <option value="<?php echo $us['user_id'] ?>"><?php echo $us['username'] ?></option>
                     <?php
                     }
@@ -75,7 +75,7 @@
                     // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $kh
                     foreach ($khoa as $kh) {
                     ?>
-                        <!-- cho admin lựa chọn option với value là role_id và hiển thị trên web là tên của cái role tương ứng với role_id đÓ -->
+                        <!-- cho admin lựa chọn option với value là ma_khoa và hiển thị trên web là tên của khoa tương ứng với ma_khoa đÓ -->
                         <option value="<?php echo $kh['ma_khoa'] ?>"><?php echo $kh['ten_khoa'] ?></option>
                     <?php
                     }

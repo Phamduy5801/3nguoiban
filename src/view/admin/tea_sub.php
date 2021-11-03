@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin'])) {
                     //nếu !$result thì die tại đây và hiển thị lỗi
                     die($conn->error);
                 }
-                //khởi tạo $teacher = 1 mảng
+                //khởi tạo $tea_sbj = 1 mảng
                 $tea_sbj = array();
                 //chạy vòng lặp để lấy dữ liệu theo từng hàng 
                 while ($r = $result->fetch_array(MYSQLI_BOTH)) {

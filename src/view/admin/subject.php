@@ -29,7 +29,7 @@
                 </tr>
             </thead>
                 <?php
-                //gọi file config để kết nô
+                //gọi file config để kết nôi
                 include_once ("../../config/config.php");
                 //câu lệNh sql
                 $query = "Select sb_id,ten_khoa, sb_ten,ngay_batdau, ngay_ketthuc, thoigian_hoc,hoc_ki,  sb_tinchi   from db_subject , db_khoa 
@@ -41,13 +41,13 @@
                     //nến không có thì die tại đây là hiển thị lỗi
                     die($conn->error);
                 }
-                //khởi tạo $role = 1 mảng
+                //khởi tạo $subject = 1 mảng
                 $subject = array();
                 //chạy vòng lặp để lấy dữ liệu theo từng hàng 
                 while ($r = $result->fetch_array(MYSQLI_BOTH)) {
                     $subject[] = $r;
                 }
-                //duyệt dữ liệu từ mảng gán vào biến $st
+                //duyệt dữ liệu từ mảng gán vào biến $sb
                 for ($i = 0; $i < count($subject); $i++) {
                     $sb = $subject[$i];
                 ?>

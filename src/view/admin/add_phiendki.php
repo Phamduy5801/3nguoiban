@@ -14,7 +14,7 @@
             <form method="POST" action="">
                 Thời gian bắt đầu: <input class="form-control" type="datetime-local" name="tg_batdau" /><br>
                 Thời gian kết thúc: <input class="form-control" type="datetime-local" name="tg_ketthuc" /><br>
-                Học kì:  <!-- tạo ra 1 seclect box cho người dùng lựa chọn danh sách tên khoa -->
+                Học kì:  <!-- tạo ra 1 seclect box cho người dùng lựa chọn danh sách kì học -->
                  <select class="form-select form-control" name="hoc_ki" aria-label="Default select example">
                     <?php
                     //kết nối csdl
@@ -73,7 +73,7 @@ if (isset($_REQUEST['tg_batdau']) && isset($_REQUEST['tg_ketthuc']) && isset($_R
     $stmt->execute();
     //đóng kết nối cơ sở dữ liệu
     $conn->close();
-    //chuyển về trang user
+    //chuyển về trang phien_dki.php
     header("Location: phien_dki.php");
 }
 ?>

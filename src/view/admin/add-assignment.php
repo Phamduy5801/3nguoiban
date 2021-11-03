@@ -38,7 +38,7 @@
                     // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $tea
                     foreach ($teacher as $tea) {
                     ?>
-                        <!-- cho admin lựa chọn option với value là role_id và hiển thị trên web là tên của cái role tương ứng với role_id đÓ -->
+                        <!-- cho admin lựa chọn option với value là tea_id và hiển thị trên web là tên giảng viên tương ứng với tea_id đÓ -->
                         <option value="<?php echo $tea['tea_id'] ?>"><?php echo $tea['tea_ten'] ?></option>
                     <?php
                     }
@@ -68,7 +68,7 @@
                     // sử dụng vòng lặp foreach để duyệt dữ liệu trong mảng và gán vào biến $sub
                     foreach ($subject as $sub) {
                     ?>
-                        <!-- cho admin lựa chọn option với value là role_id và hiển thị trên web là tên của cái role tương ứng với role_id đÓ -->
+                        <!-- cho admin lựa chọn option với value là sb_id và hiển thị trên web là tên môn học tương ứng với sb_id đÓ -->
                         <option value="<?php echo $sub['sb_id'] ?>"><?php echo $sub['sb_ten'] ?></option>
                     <?php
                     }
@@ -106,7 +106,7 @@ if (isset($_REQUEST['ten']) && isset($_REQUEST['monhoc'])) {
     $stmt->execute();
     //đóng kết nối cơ sở dữ liệu
     $conn->close();
-    //chuyển về trang role
+    //chuyển về trang tea_sub.php
     header("Location: tea_sub.php");
     ob_end_flush ();
 }
