@@ -12,7 +12,7 @@ if ($mamon != null) {
     // check xem câu lệnh có tồn tại hay ko
     if ($result4 == true) {
         // duyệt số bản ghi
-        if (mysqli_num_rows($result4) == 1) {
+        if (mysqli_num_rows($result4) > 0) {
             while ($row = mysqli_fetch_assoc($result4)) {
                 $hocki = $row['hoc_ki'];
             }
@@ -30,10 +30,11 @@ if ($mamon != null) {
                     $sql1 = "SELECT db_student.st_id FROM `db_student`, `db_user` WHERE db_student.user_id = db_user.user_id and db_user.username = '$username'";
                     $result1 = mysqli_query($conn, $sql1);
                     if ($result1 == true) {
-                        if (mysqli_num_rows($result1) > 0)
+                        if (mysqli_num_rows($result1) > 0) {
                             while ($row = mysqli_fetch_assoc($result1)) {
                                 $st_id = $row['st_id'];
                             }
+                        }
                         // check xem mon day da dc dang ki chua
                         $sql2 = "SELECT db_dkihoc.sb_id, db_student.st_id
             FROM `db_dkihoc`, `db_user`,`db_student` 
@@ -58,6 +59,7 @@ if ($mamon != null) {
                                     header('Location:' . SITESDURL . 'credits-registration.php');
                                     mysqli_close($conn);
                                 }
+                                // nếu môn này đã tồn tại
                             } else {
 ?>
                                 <script>
@@ -72,6 +74,7 @@ if ($mamon != null) {
                     else if (mysqli_num_rows($result4) == 0) {
                         header('Location:' . SITESDURL . 'credits-registration.php');
                     }
+                    // nếu môn này không tồn tại hoặc kì học không được mở
                 } else {
                     ?>
                     <script>
@@ -83,6 +86,7 @@ if ($mamon != null) {
             }
         }
     }
+    // nếu để trống thanh đăng ký mà ấn nút
 } else {
     ?>
     <script>
@@ -91,4 +95,6 @@ if ($mamon != null) {
     </script>
 <?php
 }
+// đóng kết nối
+mysqli_close($conn);
 ?>

@@ -50,22 +50,23 @@ include("partials/header.php")
                     // Check xem câu lệnh có tồn tại hay ko
                     if ($result == true) {
                         // duyệt xem có bnh bản ghi
-                        if (mysqli_num_rows($result) > 0)
+                        if (mysqli_num_rows($result) > 0) {
                             // lấy ra từng dòng bản ghi trong bảng
                             while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                            <tr>
-                                <th scope="row"><?php echo $row['id']; ?> </th>
-                                <td><?php echo $row['sb_id']; ?></td>
-                                <td><?php echo $row['st_id']; ?></td>
-                                <td><?php echo $row['tea_ten']; ?></td>
-                                <td><?php echo $row['ngay_dki']; ?></td>
-                                <td><a onclick="return confirm('Bạn có chắc xoá môn <?php echo $row['sb_id'] ?>  ?')" class="btn btn-danger" href="process/delete-credits.php?id=<?php echo $row['id'] ?>"><i class="fa-solid fa-x"></i></a></td>
-                            </tr>
+                                <tr>
+                                    <th scope="row"><?php echo $row['id']; ?> </th>
+                                    <td><?php echo $row['sb_id']; ?></td>
+                                    <td><?php echo $row['st_id']; ?></td>
+                                    <td><?php echo $row['tea_ten']; ?></td>
+                                    <td><?php echo $row['ngay_dki']; ?></td>
+                                    <td><a onclick="return confirm('Bạn có chắc xoá môn <?php echo $row['sb_id'] ?>  ?')" class="btn btn-danger" href="process/delete-credits.php?id=<?php echo $row['id'] ?>"><i class="fa-solid fa-x"></i></a></td>
+                                </tr>
                     <?php
                             }
-                        // đóng kết nối
-                        mysqli_close($conn);
+                            // đóng kết nối
+                            mysqli_close($conn);
+                        }
                     }
                     ?>
                 </tbody>
